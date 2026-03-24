@@ -1,17 +1,24 @@
 import { Link } from "react-router-dom";
 import { CartDrawer } from "./CartDrawer";
-import { Zap } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const StoreHeader = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
-      <div className="container mx-auto px-4 h-14 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <Zap className="h-5 w-5 text-primary" />
-          <span className="font-heading font-bold text-lg tracking-tight">Kinreen</span>
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-2xl border-b border-border/30"
+    >
+      <div className="container mx-auto px-5 h-16 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center glow-red-subtle">
+            <span className="text-primary font-display font-bold text-sm">K</span>
+          </div>
+          <span className="font-display font-semibold text-lg tracking-tight text-foreground">Kinreen</span>
         </Link>
         <CartDrawer />
       </div>
-    </header>
+    </motion.header>
   );
 };
