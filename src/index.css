@@ -166,8 +166,8 @@
   }
 
   .card-premium-hover:hover {
-    border-color: hsl(35 100% 55% / 0.3);
-    box-shadow: 0 20px 60px -15px hsl(35 100% 55% / 0.15), 0 0 0 1px hsl(35 100% 55% / 0.1);
+    border-color: hsl(0 85% 50% / 0.3);
+    box-shadow: 0 20px 60px -15px hsl(0 85% 50% / 0.15), 0 0 0 1px hsl(0 85% 50% / 0.1);
     transform: translateY(-4px);
   }
 }
