@@ -1,6 +1,6 @@
 import { StoreHeader } from "@/components/StoreHeader";
 import { HeroSection } from "@/components/HeroSection";
-import { BenefitsBar } from "@/components/BenefitsBar";
+
 import { ProductGrid } from "@/components/ProductGrid";
 import { StoreFooter } from "@/components/StoreFooter";
 
