@@ -10,7 +10,7 @@ const Index = () => {
       <StoreHeader />
       <main>
         <HeroSection />
-        <BenefitsBar />
+        
         <ProductGrid />
       </main>
       <StoreFooter />
