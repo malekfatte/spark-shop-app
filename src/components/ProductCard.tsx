@@ -41,9 +41,9 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
     >
-      <Link to={`/product/${node.handle}`} className="group block">
-        <div className="card-premium card-premium-hover rounded-2xl overflow-hidden">
-          <div className="aspect-[4/5] bg-secondary/20 overflow-hidden relative">
+      <Link to={`/product/${node.handle}`} className="group block h-full">
+        <div className="card-premium card-premium-hover rounded-2xl overflow-hidden h-full flex flex-col">
+          <div className="aspect-[4/5] bg-secondary/20 overflow-hidden relative flex-shrink-0">
             {image ? (
               <img
                 src={image.url}
@@ -58,18 +58,17 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
                 </div>
               </div>
             )}
-            {/* Price badge */}
-            <div className="absolute top-3 right-3 bg-background/80 backdrop-blur-md rounded-full px-3 py-1.5">
-              <span className="font-display font-bold text-sm text-foreground">
+          </div>
+          <div className="p-5 flex flex-col flex-1">
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <h3 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                {node.title}
+              </h3>
+              <span className="font-display font-bold text-lg text-primary whitespace-nowrap">
                 ${parseFloat(price.amount).toFixed(0)}
               </span>
             </div>
-          </div>
-          <div className="p-5">
-            <h3 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors duration-300">
-              {node.title}
-            </h3>
-            <p className="text-muted-foreground text-xs mt-2 line-clamp-2 font-body font-light leading-relaxed">
+            <p className="text-muted-foreground text-xs line-clamp-2 font-body font-light leading-relaxed flex-1">
               {node.description}
             </p>
             <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/30">
