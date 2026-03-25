@@ -40,6 +40,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="h-full"
     >
       <Link to={`/product/${node.handle}`} className="group block h-full">
         <div className="card-premium card-premium-hover rounded-2xl overflow-hidden h-full flex flex-col">
