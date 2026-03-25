@@ -1,6 +1,6 @@
 import heroBg from "@/assets/hero-bg.jpg";
 import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Zap, Heart, Shield, Sun } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const HeroSection = () => {
