@@ -44,7 +44,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
     >
       <Link to={`/product/${node.handle}`} className="group block h-full">
         <div className="card-premium card-premium-hover rounded-2xl overflow-hidden h-full flex flex-col">
-          <div className="aspect-[4/5] bg-white overflow-hidden relative flex-shrink-0">
+          <div className="aspect-[4/5] overflow-hidden relative flex-shrink-0">
             {image ? (
               <img
                 src={image.url}
