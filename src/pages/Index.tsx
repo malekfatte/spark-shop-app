@@ -14,6 +14,7 @@ const Index = () => {
         <ProductGrid />
       </main>
       <StoreFooter />
+      <NewsletterPopup />
     </div>
   );
 };
