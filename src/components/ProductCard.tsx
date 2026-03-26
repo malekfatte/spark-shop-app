@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { type ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
+import { useUIStore } from "@/stores/uiStore";
 
 import { Plus, Loader2, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
