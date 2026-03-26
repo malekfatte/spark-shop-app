@@ -76,7 +76,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
               {node.description}
             </p>
             <div className="flex items-center justify-between mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-border/30">
-              <span className="font-body text-xs text-muted-foreground flex items-center gap-1 group-hover:text-primary/70 transition-colors">
+              <span className="font-body text-xs text-muted-foreground flex items-center gap-1 group-hover:text-navy/70 transition-colors">
                 View Details <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
               </span>
               <button
