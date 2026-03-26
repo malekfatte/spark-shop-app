@@ -38,14 +38,6 @@ export const HeroSection = () => {
           <span className="text-gradient-red italic">Recover Faster.</span>
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-foreground max-w-lg mx-auto text-xs sm:text-sm mb-6 leading-relaxed font-body font-medium"
-        >
-          FDA-approved red & near-infrared therapy panels engineered for pain relief, skin rejuvenation, and peak cellular performance.
-        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
