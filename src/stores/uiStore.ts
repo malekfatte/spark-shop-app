@@ -1,3 +1,4 @@
+// UI state store
 import { create } from 'zustand';
 
 interface UIStore {
