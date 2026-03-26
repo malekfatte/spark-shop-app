@@ -1,5 +1,5 @@
 import { StoreHeader } from "@/components/StoreHeader";
-import { AnnouncementBar } from "@/components/AnnouncementBar";
+
 import { HeroSection } from "@/components/HeroSection";
 import { SocialProofBar } from "@/components/SocialProofBar";
 import { ProductGrid } from "@/components/ProductGrid";
