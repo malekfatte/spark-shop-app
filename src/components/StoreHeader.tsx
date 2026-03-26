@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ShieldCheck, Phone, Info, Home, Layers, Zap, Watch, Lamp, Package } from "lucide-react";
 import { useState } from "react";
 import { socialLinks } from "./StoreFooter";
+import { useUIStore } from "@/stores/uiStore";
 
 const navLinks = [
   { label: "Home", href: "/", icon: Home },

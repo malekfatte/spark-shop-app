@@ -23,7 +23,7 @@ function matchesCategory(product: ShopifyProduct, keywords: readonly string[]) {
 
 export const ProductGrid = () => {
   const { data: products, isLoading, error } = useProducts();
-  const [activeCategory, setActiveCategory] = useState("All");
+  const { activeCategory, setActiveCategory } = useUIStore();
 
   const filtered = useMemo(() => {
     if (!products) return [];
