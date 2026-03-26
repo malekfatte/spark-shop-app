@@ -120,6 +120,20 @@ export const StoreHeader = () => {
               </div>
 
               <div className="mt-8 pt-6 border-t border-border/30">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  {socialLinks.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={link.label}
+                      className="h-8 w-8 rounded-full border border-border/30 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <link.icon className="h-3.5 w-3.5" />
+                    </a>
+                  ))}
+                </div>
                 <p className="text-muted-foreground/40 text-[10px] font-body tracking-wider uppercase text-center">
                   © {new Date().getFullYear()} Soléa
                 </p>
