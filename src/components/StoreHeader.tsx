@@ -3,6 +3,7 @@ import { CartDrawer } from "./CartDrawer";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ShieldCheck, Phone, Info, Home } from "lucide-react";
 import { useState } from "react";
+import { socialLinks } from "./StoreFooter";
 
 const navLinks = [
   { label: "Home", href: "/", icon: Home },
