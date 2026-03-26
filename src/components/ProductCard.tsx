@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { type ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
-import { Button } from "@/components/ui/button";
-import { ShoppingCart, Loader2, ArrowRight } from "lucide-react";
+
+import { Plus, Loader2, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 
@@ -55,7 +55,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary/40 to-secondary/10">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                  <ShoppingCart className="h-6 w-6 text-primary/40" />
+                  <Plus className="h-6 w-6 text-primary/40" />
                 </div>
               </div>
             )}
@@ -76,14 +76,13 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
               <span className="font-body text-xs text-muted-foreground flex items-center gap-1 group-hover:text-primary/70 transition-colors">
                 View Details <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
               </span>
-              <Button
-                size="sm"
+              <button
                 onClick={handleAddToCart}
                 disabled={isLoading || !firstVariant?.availableForSale}
-                className="rounded-full h-9 px-4 text-xs font-body"
+                className="rounded-full h-9 w-9 flex items-center justify-center bg-primary/60 hover:bg-primary/80 text-primary-foreground transition-all duration-300 disabled:opacity-40 shadow-sm hover:shadow-md hover:scale-105"
               >
-                {isLoading ? <Loader2 className="h-3 w-3 animate-spin" /> : <><ShoppingCart className="h-3 w-3 mr-1.5" />Add</>}
-              </Button>
+                {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
+              </button>
             </div>
           </div>
         </div>
