@@ -64,7 +64,7 @@ export const CartDrawer = () => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-display font-semibold text-sm truncate text-foreground">{item.product.node.title}</h4>
-                        <p className="text-primary font-body font-semibold text-sm mt-0.5">${parseFloat(item.price.amount).toFixed(2)}</p>
+                        <p className="text-navy font-body font-semibold text-sm mt-0.5">${parseFloat(item.price.amount).toFixed(2)}</p>
                       </div>
                       <div className="flex flex-col items-end gap-2 flex-shrink-0">
                         <Button variant="ghost" size="icon" className="h-6 w-6 text-muted-foreground hover:text-destructive" onClick={() => removeItem(item.variantId)}>
