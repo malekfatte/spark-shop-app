@@ -3,9 +3,27 @@ import { type ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { useUIStore } from "@/stores/uiStore";
 
-import { Plus, Loader2, ArrowRight } from "lucide-react";
+import { Plus, Loader2, ArrowRight, Flame, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+
+function getProductBadge(title: string): { label: string; icon: typeof Flame } | null {
+  const t = title.toLowerCase();
+  if (t.includes("1500") || t.includes("full body")) return { label: "Best Seller", icon: Flame };
+  if (t.includes("mask") || t.includes("go2")) return { label: "Popular", icon: Sparkles };
+  return null;
+}
+
+function getBenefitLine(title: string): string {
+  const t = title.toLowerCase();
+  if (t.includes("mask")) return "Skin rejuvenation • Targeted therapy";
+  if (t.includes("1500") || t.includes("full body")) return "Full-body coverage • 660nm + 850nm";
+  if (t.includes("panel") || t.includes("kr")) return "Dual wavelength • Clinical grade";
+  if (t.includes("wrap") || t.includes("belt")) return "Flexible fit • Joint & muscle relief";
+  if (t.includes("bulb") || t.includes("lamp")) return "Portable • Spot treatment";
+  if (t.includes("mat")) return "Deep relaxation • Full back therapy";
+  return "Professional grade • Precision engineered";
+}
 
 interface ProductCardProps {
   product: ShopifyProduct;
@@ -20,6 +38,8 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
   const firstVariant = node.variants.edges[0]?.node;
   const image = node.images.edges[0]?.node;
   const price = node.priceRange.minVariantPrice;
+  const badge = getProductBadge(node.title);
+  const benefit = getBenefitLine(node.title);
 
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -48,6 +68,12 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
       <Link to={`/product/${node.handle}`} className="group block h-full">
         <div className="card-premium card-premium-hover rounded-2xl overflow-hidden h-full flex flex-col">
           <div className="aspect-square overflow-hidden relative flex-shrink-0 bg-secondary/30">
+            {badge && (
+              <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1 bg-navy text-white px-2.5 py-1 rounded-full">
+                <badge.icon className="h-3 w-3" />
+                <span className="font-body text-[10px] font-semibold tracking-wider uppercase">{badge.label}</span>
+              </div>
+            )}
             {image ? (
               <img
                 src={image.url}
@@ -64,7 +90,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
             )}
           </div>
           <div className="p-3 sm:p-4 flex flex-col flex-1">
-            <div className="flex items-start justify-between gap-2 mb-2">
+            <div className="flex items-start justify-between gap-2 mb-1">
               <h3 className="font-display font-semibold text-sm sm:text-base text-foreground group-hover:text-navy transition-colors duration-300 line-clamp-1">
                 {node.title}
               </h3>
@@ -72,6 +98,9 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
                 ${parseFloat(price.amount).toFixed(0)}
               </span>
             </div>
+            <p className="text-primary/70 text-[9px] sm:text-[10px] font-body font-medium tracking-wider uppercase mb-1">
+              {benefit}
+            </p>
             <p className="text-muted-foreground text-[10px] sm:text-xs line-clamp-1 font-body font-light leading-relaxed flex-1">
               {node.description}
             </p>

@@ -14,6 +14,22 @@ const socialLinks = [
 
 export { socialLinks, TikTokIcon };
 
+// Payment method SVG icons
+const PaymentIcons = () => (
+  <div className="flex items-center justify-center gap-3 mt-4">
+    {["Visa", "Mastercard", "PayPal", "Shop Pay"].map((name) => (
+      <div
+        key={name}
+        className="h-7 px-3 rounded bg-secondary/40 border border-border/20 flex items-center justify-center"
+      >
+        <span className="font-body text-[9px] font-semibold text-muted-foreground tracking-wider uppercase">
+          {name}
+        </span>
+      </div>
+    ))}
+  </div>
+);
+
 export const StoreFooter = () => (
   <footer className="border-t border-border/30 py-14 relative">
     <div className="absolute inset-0 bg-noise" />
@@ -36,6 +52,7 @@ export const StoreFooter = () => (
           </a>
         ))}
       </div>
+      <PaymentIcons />
       <div className="mt-6 pt-6 border-t border-border/20">
         <p className="text-muted-foreground/40 text-[10px] font-body tracking-wider uppercase">
           © {new Date().getFullYear()} Soléa Technologies Inc.

@@ -1,22 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { storefrontApiRequest, STOREFRONT_PRODUCT_BY_HANDLE_QUERY } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
+import { useUIStore } from "@/stores/uiStore";
 import { StoreHeader } from "@/components/StoreHeader";
 import { StoreFooter } from "@/components/StoreFooter";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ShoppingCart, Loader2, Minus, Plus, Shield } from "lucide-react";
 import { toast } from "sonner";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
   const addItem = useCartStore(state => state.addItem);
   const isCartLoading = useCartStore(state => state.isLoading);
+  const openCart = useUIStore(state => state.openCart);
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [showStickyBar, setShowStickyBar] = useState(false);
+  const addToCartRef = useRef<HTMLButtonElement>(null);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', handle],
@@ -26,6 +30,16 @@ const ProductDetail = () => {
     },
     enabled: !!handle,
   });
+
+  useEffect(() => {
+    if (!addToCartRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowStickyBar(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(addToCartRef.current);
+    return () => observer.disconnect();
+  }, [product]);
 
   if (isLoading) {
     return (
@@ -58,12 +72,15 @@ const ProductDetail = () => {
       selectedOptions: selectedVariant.selectedOptions || [],
     });
     toast.success("Added to cart", { description: `${product.title} × ${quantity}`, position: "top-center" });
+    openCart();
   };
+
+  const totalPrice = (parseFloat(selectedVariant?.price.amount || '0') * quantity).toFixed(2);
 
   return (
     <div className="min-h-screen bg-background">
       <StoreHeader />
-      <main className="pt-16">
+      <main className="pt-16 pb-20 md:pb-0">
         <div className="container mx-auto px-5 py-8">
           <Link to="/" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground font-body transition-colors mb-8">
             <ArrowLeft className="h-3.5 w-3.5" /> Back to Collection
@@ -176,6 +193,7 @@ const ProductDetail = () => {
 
               {/* Add to Cart */}
               <Button
+                ref={addToCartRef}
                 onClick={handleAddToCart}
                 size="lg"
                 className="w-full rounded-full py-6 font-body font-medium tracking-wide bg-navy hover:bg-navy/90 text-white"
@@ -186,7 +204,7 @@ const ProductDetail = () => {
                 ) : (
                   <>
                     <ShoppingCart className="h-4 w-4 mr-2" />
-                    Add to Cart — ${(parseFloat(selectedVariant?.price.amount || '0') * quantity).toFixed(2)}
+                    Add to Cart — ${totalPrice}
                   </>
                 )}
               </Button>
@@ -204,6 +222,35 @@ const ProductDetail = () => {
           </div>
         </div>
       </main>
+
+      {/* Sticky bottom bar */}
+      <AnimatePresence>
+        {showStickyBar && selectedVariant && (
+          <motion.div
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 80, opacity: 0 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="fixed bottom-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-2xl border-t border-border/30"
+          >
+            <div className="container mx-auto px-5 py-3 flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3 min-w-0">
+                <p className="font-display font-semibold text-sm text-foreground truncate">{product.title}</p>
+                <p className="font-display font-bold text-lg text-navy whitespace-nowrap">${totalPrice}</p>
+              </div>
+              <Button
+                onClick={handleAddToCart}
+                className="rounded-full px-6 py-5 font-body text-sm bg-navy hover:bg-navy/90 text-white flex-shrink-0 gap-2"
+                disabled={isCartLoading || !selectedVariant.availableForSale}
+              >
+                {isCartLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <ShoppingCart className="h-4 w-4" />}
+                Add to Cart
+              </Button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <StoreFooter />
     </div>
   );
