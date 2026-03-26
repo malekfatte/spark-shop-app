@@ -146,8 +146,8 @@ const ProductDetail = () => {
                               onClick={() => variantIdx >= 0 && setSelectedVariantIndex(variantIdx)}
                               className={`px-4 py-2 text-xs font-body rounded-full border transition-all ${
                                 isSelected
-                                  ? 'border-primary bg-primary/10 text-primary'
-                                  : 'border-border hover:border-primary/30 text-muted-foreground'
+                                  ? 'border-navy bg-navy/10 text-navy'
+                                  : 'border-border hover:border-navy/30 text-muted-foreground'
                               }`}
                             >
                               {value}
