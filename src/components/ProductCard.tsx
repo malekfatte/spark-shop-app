@@ -76,14 +76,13 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
               <span className="font-body text-xs text-muted-foreground flex items-center gap-1 group-hover:text-primary/70 transition-colors">
                 View Details <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
               </span>
-              <Button
-                size="sm"
+              <button
                 onClick={handleAddToCart}
                 disabled={isLoading || !firstVariant?.availableForSale}
-                className="rounded-full h-9 px-4 text-xs font-body"
+                className="rounded-full h-9 w-9 flex items-center justify-center bg-primary/60 hover:bg-primary/80 text-primary-foreground transition-all duration-300 disabled:opacity-40 shadow-sm hover:shadow-md hover:scale-105"
               >
-                {isLoading ? <Loader2 className="h-3 w-3 animate-spin" /> : <><ShoppingCart className="h-3 w-3 mr-1.5" />Add</>}
-              </Button>
+                {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
+              </button>
             </div>
           </div>
         </div>
