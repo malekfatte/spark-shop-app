@@ -81,7 +81,7 @@ export const ProductGrid = () => {
                   `}
                 >
                   {cat.label}
-                  <span className={`ml-1.5 text-[10px] sm:text-xs ${isActive ? "text-primary-foreground/70" : "text-muted-foreground/60"}`}>
+                  <span className={`ml-1.5 text-[10px] sm:text-xs ${isActive ? "text-white/70" : "text-muted-foreground/60"}`}>
                     {count}
                   </span>
                 </button>
