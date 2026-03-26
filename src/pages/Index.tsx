@@ -4,6 +4,7 @@ import { ProductGrid } from "@/components/ProductGrid";
 import { CertificationsSection } from "@/components/CertificationsSection";
 import { CompanySection } from "@/components/CompanySection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { ContactSection } from "@/components/ContactSection";
 import { StoreFooter } from "@/components/StoreFooter";
 import { NewsletterPopup } from "@/components/NewsletterPopup";
 
