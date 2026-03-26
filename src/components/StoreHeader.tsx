@@ -23,9 +23,13 @@ const categoryLinks = [
 
 export const StoreHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const setActiveCategory = useUIStore((s) => s.setActiveCategory);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href: string, filter?: string) => {
     setMenuOpen(false);
+    if (filter) {
+      setActiveCategory(filter);
+    }
     if (href.startsWith("#")) {
       const id = href.slice(1);
       setTimeout(() => {

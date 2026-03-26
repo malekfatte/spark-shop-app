@@ -1,4 +1,5 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
+import { useUIStore } from "@/stores/uiStore";
 import { useProducts } from "@/hooks/useProducts";
 import { ProductCard } from "./ProductCard";
 import { Loader2, PackageOpen } from "lucide-react";
