@@ -65,7 +65,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
               <h3 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
                 {node.title}
               </h3>
-              <span className="font-display font-bold text-lg text-primary whitespace-nowrap">
+              <span className="font-display font-bold text-lg text-navy whitespace-nowrap">
                 ${parseFloat(price.amount).toFixed(0)}
               </span>
             </div>
