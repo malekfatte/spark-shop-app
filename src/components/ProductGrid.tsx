@@ -1,18 +1,18 @@
 import { useState, useMemo } from "react";
 import { useProducts } from "@/hooks/useProducts";
 import { ProductCard } from "./ProductCard";
-import { Loader2, PackageOpen, Zap, Shield, Sun, Eye, Moon, Heart } from "lucide-react";
+import { Loader2, PackageOpen } from "lucide-react";
 import { motion } from "framer-motion";
 import type { ShopifyProduct } from "@/lib/shopify";
 
+// Categories inspired by Heilys structure: product type based
 const CATEGORIES = [
-  { label: "All", keywords: [], icon: null },
-  { label: "Panels", keywords: ["panel", "kr1500", "kr600", "kr300", "kr15", "kr900"], icon: Shield },
-  { label: "Mats", keywords: ["mat"], icon: Sun },
-  { label: "Wraps & Bags", keywords: ["wrap", "sleeping", "bag"], icon: Moon },
-  { label: "Bulbs", keywords: ["bulb"], icon: Zap },
-  { label: "Masks", keywords: ["mask"], icon: Heart },
-  { label: "Devices", keywords: ["go2", "round", "foldable"], icon: Eye },
+  { label: "All", keywords: [] },
+  { label: "Panels", keywords: ["panel", "kr1500", "kr600", "kr300", "kr15", "kr900"] },
+  { label: "Full Body", keywords: ["full body", "kr1500", "mat"] },
+  { label: "Wearables", keywords: ["mask", "wrap", "foldable", "go2"] },
+  { label: "Lamps", keywords: ["bulb", "round"] },
+  { label: "Accessories", keywords: ["bag", "sleeping", "stand", "door"] },
 ] as const;
 
 function matchesCategory(product: ShopifyProduct, keywords: readonly string[]) {
@@ -41,7 +41,7 @@ export const ProductGrid = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <p className="font-body text-primary font-medium tracking-[0.3em] uppercase text-[10px] mb-3">The Collection</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
@@ -50,14 +50,14 @@ export const ProductGrid = () => {
           </h2>
         </motion.div>
 
-        {/* Category filter — icon circles like Heilys */}
+        {/* Category filter tabs */}
         {products && products.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-4 sm:gap-8 mb-14"
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10"
           >
             {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat.label;
@@ -67,34 +67,22 @@ export const ProductGrid = () => {
 
               if (count === 0 && cat.keywords.length > 0) return null;
 
-              const Icon = cat.icon;
-
               return (
                 <button
                   key={cat.label}
                   onClick={() => setActiveCategory(cat.label)}
-                  className="flex flex-col items-center gap-2 group"
+                  className={`
+                    font-body text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full
+                    transition-all duration-300 border
+                    ${isActive
+                      ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20"
+                      : "bg-secondary/30 text-muted-foreground border-border/40 hover:border-primary/50 hover:text-foreground"
+                    }
+                  `}
                 >
-                  <div
-                    className={`
-                      w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center
-                      transition-all duration-300 border-2
-                      ${isActive
-                        ? "border-primary bg-primary/10 shadow-lg shadow-primary/20"
-                        : "border-border/50 bg-secondary/20 group-hover:border-primary/40"
-                      }
-                    `}
-                  >
-                    {Icon ? (
-                      <Icon className={`h-5 w-5 sm:h-6 sm:w-6 transition-colors duration-300 ${isActive ? "text-primary" : "text-muted-foreground group-hover:text-foreground"}`} />
-                    ) : (
-                      <span className={`font-display text-sm font-bold transition-colors duration-300 ${isActive ? "text-primary" : "text-muted-foreground group-hover:text-foreground"}`}>
-                        {count}
-                      </span>
-                    )}
-                  </div>
-                  <span className={`font-body text-[10px] sm:text-xs tracking-wide transition-colors duration-300 ${isActive ? "text-foreground font-medium" : "text-muted-foreground group-hover:text-foreground"}`}>
-                    {cat.label}
+                  {cat.label}
+                  <span className={`ml-1.5 text-[10px] sm:text-xs ${isActive ? "text-primary-foreground/70" : "text-muted-foreground/60"}`}>
+                    {count}
                   </span>
                 </button>
               );
