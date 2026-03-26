@@ -1,6 +1,9 @@
 import { StoreHeader } from "@/components/StoreHeader";
 import { HeroSection } from "@/components/HeroSection";
 import { ProductGrid } from "@/components/ProductGrid";
+import { CertificationsSection } from "@/components/CertificationsSection";
+import { CompanySection } from "@/components/CompanySection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { StoreFooter } from "@/components/StoreFooter";
 import { NewsletterPopup } from "@/components/NewsletterPopup";
 
@@ -10,8 +13,10 @@ const Index = () => {
       <StoreHeader />
       <main>
         <HeroSection />
-        
         <ProductGrid />
+        <CertificationsSection />
+        <TestimonialsSection />
+        <CompanySection />
       </main>
       <StoreFooter />
       <NewsletterPopup />
