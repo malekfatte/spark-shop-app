@@ -33,7 +33,7 @@ export const ProductGrid = () => {
   }, [products, activeCategory]);
 
   return (
-    <section id="products" className="py-10 sm:py-16 relative">
+    <section id="products" className="py-6 sm:py-10 relative">
       <div className="absolute inset-0 bg-noise" />
       <div className="container mx-auto px-3 sm:px-5 relative">
         <motion.div
