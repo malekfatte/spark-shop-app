@@ -38,6 +38,7 @@ const results: Result[] = [
     duration: "6 weeks",
     description: "Significant reduction in joint stiffness and inflammation with dual-wavelength panel sessions.",
     gradient: "from-emerald-400/20 to-teal-400/20",
+    image: resultJointPain,
   },
   {
     title: "Skin Rejuvenation",
