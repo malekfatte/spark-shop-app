@@ -35,7 +35,7 @@ export const ProductGrid = () => {
   return (
     <section id="products" className="py-10 sm:py-16 relative">
       <div className="absolute inset-0 bg-noise" />
-      <div className="container mx-auto px-5 relative">
+      <div className="container mx-auto px-3 sm:px-5 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
