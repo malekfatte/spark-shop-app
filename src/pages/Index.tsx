@@ -1,8 +1,8 @@
 import { StoreHeader } from "@/components/StoreHeader";
 import { HeroSection } from "@/components/HeroSection";
-
 import { ProductGrid } from "@/components/ProductGrid";
 import { StoreFooter } from "@/components/StoreFooter";
+import { NewsletterPopup } from "@/components/NewsletterPopup";
 
 const Index = () => {
   return (
@@ -14,6 +14,7 @@ const Index = () => {
         <ProductGrid />
       </main>
       <StoreFooter />
+      <NewsletterPopup />
     </div>
   );
 };
