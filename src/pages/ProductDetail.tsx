@@ -99,7 +99,7 @@ const ProductDetail = () => {
                       key={i}
                       onClick={() => setSelectedImage(i)}
                       className={`w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all ${
-                        i === selectedImage ? 'border-primary glow-red-subtle' : 'border-border/30 hover:border-border'
+                        i === selectedImage ? 'border-navy shadow-sm' : 'border-border/30 hover:border-border'
                       }`}
                     >
                       <img src={img.node.url} alt={img.node.altText || ''} className="w-full h-full object-cover" />
