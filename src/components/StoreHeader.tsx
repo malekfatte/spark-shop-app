@@ -13,8 +13,8 @@ export const StoreHeader = () => {
     >
       <div className="container mx-auto px-5 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <img src={thermaLogo} alt="Therma" className="h-8 w-8 object-contain" width={32} height={32} />
-          <span className="font-display font-semibold text-lg tracking-tight text-foreground">Therma</span>
+          <img src={thermaLogo} alt="Soléa" className="h-8 w-8 object-contain" width={32} height={32} />
+          <span className="font-display font-semibold text-lg tracking-tight text-foreground">Soléa</span>
         </Link>
         <CartDrawer />
       </div>
