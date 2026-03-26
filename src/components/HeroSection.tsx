@@ -42,7 +42,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-foreground/80 max-w-lg mx-auto text-sm sm:text-base mb-10 leading-relaxed font-body font-light"
+          className="text-foreground max-w-lg mx-auto text-sm sm:text-base mb-10 leading-relaxed font-body font-medium"
         >
           FDA-approved red & near-infrared therapy panels engineered for pain relief, skin rejuvenation, and peak cellular performance.
         </motion.p>
