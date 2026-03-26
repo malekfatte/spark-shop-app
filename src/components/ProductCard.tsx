@@ -34,6 +34,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
       selectedOptions: firstVariant.selectedOptions || [],
     });
     toast.success("Added to cart", { description: node.title, position: "top-center" });
+    openCart();
   };
 
   return (

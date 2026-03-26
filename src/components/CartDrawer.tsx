@@ -23,7 +23,7 @@ export const CartDrawer = () => {
   };
 
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+    <Sheet open={isCartOpen} onOpenChange={setCartOpen}>
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" className="relative hover:bg-secondary">
           <ShoppingCart className="h-5 w-5 text-foreground" />
