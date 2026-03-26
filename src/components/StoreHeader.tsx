@@ -138,7 +138,7 @@ export const StoreHeader = () => {
                   {categoryLinks.map((cat) => (
                     <button
                       key={cat.label}
-                      onClick={() => handleNavClick(cat.href)}
+                      onClick={() => handleNavClick(cat.href, cat.filter)}
                       className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl font-body text-sm text-foreground hover:bg-secondary/40 transition-colors"
                     >
                       <cat.icon className="h-4 w-4 text-muted-foreground" />
