@@ -65,7 +65,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
               <h3 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
                 {node.title}
               </h3>
-              <span className="font-display font-bold text-lg text-primary whitespace-nowrap">
+              <span className="font-display font-bold text-lg text-navy whitespace-nowrap">
                 ${parseFloat(price.amount).toFixed(0)}
               </span>
             </div>
@@ -79,7 +79,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
               <button
                 onClick={handleAddToCart}
                 disabled={isLoading || !firstVariant?.availableForSale}
-                className="rounded-full h-9 w-9 flex items-center justify-center bg-primary/60 hover:bg-primary/80 text-primary-foreground transition-all duration-300 disabled:opacity-40 shadow-sm hover:shadow-md hover:scale-105"
+                className="rounded-full h-9 w-9 flex items-center justify-center bg-navy hover:bg-navy/80 text-white transition-all duration-300 disabled:opacity-40 shadow-sm hover:shadow-md hover:scale-105"
               >
                 {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
               </button>

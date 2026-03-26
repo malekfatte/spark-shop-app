@@ -119,7 +119,7 @@ const ProductDetail = () => {
               <div>
                 <p className="font-body text-primary font-medium tracking-[0.2em] uppercase text-[10px] mb-2">Soléa</p>
                 <h1 className="font-display text-3xl sm:text-4xl font-bold text-foreground leading-tight">{product.title}</h1>
-                <p className="text-primary font-display text-3xl font-bold mt-3">
+                <p className="text-navy font-display text-3xl font-bold mt-3">
                   ${parseFloat(selectedVariant?.price.amount || '0').toFixed(2)}
                   <span className="text-muted-foreground text-xs font-body font-normal ml-2">{selectedVariant?.price.currencyCode}</span>
                 </p>
