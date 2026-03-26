@@ -30,6 +30,7 @@ const results: Result[] = [
     duration: "4 weeks",
     description: "Faster post-workout recovery and reduced muscle soreness using 850nm near-infrared therapy.",
     gradient: "from-sky-400/20 to-indigo-400/20",
+    image: resultMuscleRecovery,
   },
   {
     title: "Joint Pain Relief",
