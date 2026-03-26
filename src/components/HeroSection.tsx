@@ -55,7 +55,7 @@ export const HeroSection = () => {
           <Button
             onClick={scrollToProducts}
             size="lg"
-            className="rounded-full px-10 py-6 text-sm font-body font-medium tracking-wide glow-red"
+            className="rounded-full px-10 py-6 text-sm font-body font-medium tracking-wide bg-navy hover:bg-navy/90 text-white"
           >
             Shop Collection <ArrowDown className="ml-2 h-4 w-4" />
           </Button>
