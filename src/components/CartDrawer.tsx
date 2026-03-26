@@ -28,7 +28,7 @@ export const CartDrawer = () => {
         <Button variant="ghost" size="icon" className="relative hover:bg-secondary">
           <ShoppingCart className="h-5 w-5 text-foreground" />
           {totalItems > 0 && (
-            <Badge className="absolute -top-1.5 -right-1.5 h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px] font-body font-bold">
+            <Badge className="absolute -top-1.5 -right-1.5 h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px] font-body font-bold bg-navy text-white border-0">
               {totalItems}
             </Badge>
           )}
@@ -64,7 +64,7 @@ export const CartDrawer = () => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-display font-semibold text-sm truncate text-foreground">{item.product.node.title}</h4>
-                        <p className="text-primary font-body font-semibold text-sm mt-0.5">${parseFloat(item.price.amount).toFixed(2)}</p>
+                        <p className="text-navy font-body font-semibold text-sm mt-0.5">${parseFloat(item.price.amount).toFixed(2)}</p>
                       </div>
                       <div className="flex flex-col items-end gap-2 flex-shrink-0">
                         <Button variant="ghost" size="icon" className="h-6 w-6 text-muted-foreground hover:text-destructive" onClick={() => removeItem(item.variantId)}>
@@ -89,7 +89,7 @@ export const CartDrawer = () => {
                   <span className="font-display text-base">Total</span>
                   <span className="font-display text-xl font-bold text-foreground">${totalPrice.toFixed(2)}</span>
                 </div>
-                <Button onClick={handleCheckout} className="w-full rounded-full py-6 font-body font-medium tracking-wide glow-red" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
+                <Button onClick={handleCheckout} className="w-full rounded-full py-6 font-body font-medium tracking-wide bg-navy hover:bg-navy/90 text-white" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
                   {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : <><ExternalLink className="w-4 h-4 mr-2" />Secure Checkout</>}
                 </Button>
               </div>
