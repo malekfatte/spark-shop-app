@@ -79,7 +79,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
               <button
                 onClick={handleAddToCart}
                 disabled={isLoading || !firstVariant?.availableForSale}
-                className="rounded-full h-9 w-9 flex items-center justify-center bg-primary/60 hover:bg-primary/80 text-primary-foreground transition-all duration-300 disabled:opacity-40 shadow-sm hover:shadow-md hover:scale-105"
+                className="rounded-full h-9 w-9 flex items-center justify-center bg-navy hover:bg-navy/80 text-white transition-all duration-300 disabled:opacity-40 shadow-sm hover:shadow-md hover:scale-105"
               >
                 {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
               </button>

@@ -55,6 +55,7 @@ export default {
           red: "hsl(var(--glow-red))",
           infrared: "hsl(var(--glow-infrared))",
         },
+        navy: "hsl(var(--navy))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
