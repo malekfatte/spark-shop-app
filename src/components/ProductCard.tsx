@@ -15,6 +15,7 @@ interface ProductCardProps {
 export const ProductCard = ({ product, index }: ProductCardProps) => {
   const addItem = useCartStore(state => state.addItem);
   const isLoading = useCartStore(state => state.isLoading);
+  const openCart = useUIStore(state => state.openCart);
   const { node } = product;
   const firstVariant = node.variants.edges[0]?.node;
   const image = node.images.edges[0]?.node;
