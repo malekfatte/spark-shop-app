@@ -89,7 +89,7 @@ export const CartDrawer = () => {
                   <span className="font-display text-base">Total</span>
                   <span className="font-display text-xl font-bold text-foreground">${totalPrice.toFixed(2)}</span>
                 </div>
-                <Button onClick={handleCheckout} className="w-full rounded-full py-6 font-body font-medium tracking-wide glow-red" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
+                <Button onClick={handleCheckout} className="w-full rounded-full py-6 font-body font-medium tracking-wide bg-navy hover:bg-navy/90 text-white" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
                   {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : <><ExternalLink className="w-4 h-4 mr-2" />Secure Checkout</>}
                 </Button>
               </div>
