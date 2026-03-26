@@ -12,6 +12,7 @@ interface Result {
   duration: string;
   description: string;
   gradient: string;
+  image: string;
 }
 
 const results: Result[] = [
@@ -21,6 +22,7 @@ const results: Result[] = [
     duration: "8 weeks",
     description: "Visible reduction in fine lines and improved skin texture through consistent 660nm red light sessions.",
     gradient: "from-rose-400/20 to-amber-400/20",
+    image: resultFineLines,
   },
   {
     title: "Muscle Recovery",
