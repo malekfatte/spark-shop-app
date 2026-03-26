@@ -92,7 +92,7 @@ export const ProductGrid = () => {
 
         {isLoading ? (
           <div className="flex justify-center py-24">
-            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            <Loader2 className="h-8 w-8 animate-spin text-navy" />
           </div>
         ) : error ? (
           <div className="text-center py-24 text-destructive font-body">

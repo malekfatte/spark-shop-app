@@ -74,7 +74,7 @@ export const HeroSection = () => {
             { icon: Sun, label: "Full Spectrum" },
           ].map(({ icon: Icon, label }) => (
             <div key={label} className="flex items-center gap-1.5">
-              <Icon className="h-3 w-3 text-primary" />
+              <Icon className="h-3 w-3 text-navy" />
               <span className="font-body text-[10px] sm:text-xs tracking-wider uppercase">{label}</span>
             </div>
           ))}
