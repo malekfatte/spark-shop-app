@@ -11,7 +11,7 @@ export const StoreFooter = () => (
       </p>
       <div className="mt-6 pt-6 border-t border-border/20">
         <p className="text-muted-foreground/40 text-[10px] font-body tracking-wider uppercase">
-          © {new Date().getFullYear()} Therma Technologies Inc.
+          © {new Date().getFullYear()} Soléa Technologies Inc.
         </p>
       </div>
     </div>
