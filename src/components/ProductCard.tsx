@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { type ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Loader2, ArrowRight } from "lucide-react";
+import { Plus, Loader2, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 
