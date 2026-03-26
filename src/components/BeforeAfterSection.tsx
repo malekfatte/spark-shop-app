@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Clock, Sparkles } from "lucide-react";
-import resultFineLines from "@/assets/result-fine-lines.jpg";
-import resultMuscleRecovery from "@/assets/result-muscle-recovery.jpg";
-import resultJointPain from "@/assets/result-joint-pain.jpg";
-import resultSkinRejuvenation from "@/assets/result-skin-rejuvenation.jpg";
+
+const resultFineLines = "/result-fine-lines.jpg";
+const resultMuscleRecovery = "/result-muscle-recovery.jpg";
+const resultJointPain = "/result-joint-pain.jpg";
+const resultSkinRejuvenation = "/result-skin-rejuvenation.jpg";
 
 interface Result {
   title: string;
