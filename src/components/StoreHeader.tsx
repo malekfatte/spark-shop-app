@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { CartDrawer } from "./CartDrawer";
 import { motion } from "framer-motion";
-import thermaLogo from "@/assets/therma-logo.png";
-
 export const StoreHeader = () => {
   return (
     <motion.header
@@ -13,7 +11,6 @@ export const StoreHeader = () => {
     >
       <div className="container mx-auto px-5 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <img src={thermaLogo} alt="Soléa" className="h-8 w-8 object-contain" width={32} height={32} />
           <span className="font-display font-semibold text-lg tracking-tight text-foreground">Soléa</span>
         </Link>
         <CartDrawer />
