@@ -75,8 +75,8 @@ export const ProductGrid = () => {
                     font-body text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full
                     transition-all duration-300 border
                     ${isActive
-                      ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20"
-                      : "bg-secondary/30 text-muted-foreground border-border/40 hover:border-primary/50 hover:text-foreground"
+                      ? "bg-navy text-white border-navy shadow-lg shadow-navy/20"
+                      : "bg-secondary/30 text-muted-foreground border-border/40 hover:border-navy/50 hover:text-foreground"
                     }
                   `}
                 >
