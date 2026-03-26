@@ -86,8 +86,8 @@ const ProductDetail = () => {
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary/40 to-secondary/10">
-                    <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
-                      <ShoppingCart className="h-8 w-8 text-primary/30" />
+                    <div className="w-20 h-20 rounded-full bg-navy/10 flex items-center justify-center">
+                      <ShoppingCart className="h-8 w-8 text-navy/30" />
                     </div>
                   </div>
                 )}
