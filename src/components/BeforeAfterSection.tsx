@@ -67,6 +67,18 @@ const ResultCard = ({ result, index }: { result: Result; index: number }) => {
           onClick={() => setShowAfter(!showAfter)}
           className={`relative w-full aspect-[4/3] bg-gradient-to-br ${result.gradient} transition-all duration-700 overflow-hidden`}
         >
+          {/* Result image */}
+          <img
+            src={result.image}
+            alt={result.title}
+            loading="lazy"
+            width={672}
+            height={512}
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
+              showAfter ? "opacity-100 scale-100" : "opacity-0 scale-110"
+            }`}
+          />
+
           {/* Before state */}
           <div
             className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ${
@@ -88,8 +100,8 @@ const ResultCard = ({ result, index }: { result: Result; index: number }) => {
             <div className="w-16 h-16 rounded-full bg-navy/80 backdrop-blur-sm flex items-center justify-center mb-3 border border-white/20">
               <Sparkles className="h-5 w-5 text-white" />
             </div>
-            <span className="font-display text-sm font-bold text-navy">After {result.duration}</span>
-            <p className="text-[10px] font-body text-muted-foreground/70 tracking-wider uppercase mt-1">Tap to reset</p>
+            <span className="font-display text-sm font-bold text-navy drop-shadow-md">After {result.duration}</span>
+            <p className="text-[10px] font-body text-white/70 tracking-wider uppercase mt-1 drop-shadow-sm">Tap to reset</p>
           </div>
 
           {/* Toggle indicator */}
