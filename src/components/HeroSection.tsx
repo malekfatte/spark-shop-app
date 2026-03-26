@@ -16,7 +16,7 @@ export const HeroSection = () => {
         <div className="absolute inset-0 bg-noise" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-5 text-center pt-16">
+      <div className="relative z-10 container mx-auto px-4 text-center pt-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
