@@ -178,7 +178,7 @@ const ProductDetail = () => {
               <Button
                 onClick={handleAddToCart}
                 size="lg"
-                className="w-full rounded-full py-6 font-body font-medium tracking-wide glow-red"
+                className="w-full rounded-full py-6 font-body font-medium tracking-wide bg-navy hover:bg-navy/90 text-white"
                 disabled={isCartLoading || !selectedVariant?.availableForSale}
               >
                 {isCartLoading ? (
