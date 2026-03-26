@@ -62,7 +62,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
           </div>
           <div className="p-3 sm:p-4 flex flex-col flex-1">
             <div className="flex items-start justify-between gap-2 mb-2">
-              <h3 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
+              <h3 className="font-display font-semibold text-sm sm:text-base text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-1">
                 {node.title}
               </h3>
               <span className="font-display font-bold text-lg text-navy whitespace-nowrap">
