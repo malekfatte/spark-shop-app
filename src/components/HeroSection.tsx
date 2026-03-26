@@ -12,7 +12,7 @@ export const HeroSection = () => {
     <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <img src={heroBg} alt="Red Light Therapy Device" className="w-full h-full object-cover scale-110" width={1920} height={1080} />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/75 to-background" />
         <div className="absolute inset-0 bg-noise" />
       </div>
 
