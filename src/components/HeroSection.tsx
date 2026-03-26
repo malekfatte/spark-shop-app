@@ -22,7 +22,7 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <p className="font-body text-primary font-medium tracking-[0.35em] uppercase text-[10px] sm:text-xs mb-6">
+          <p className="font-body text-primary font-medium tracking-[0.35em] uppercase text-[10px] sm:text-xs mb-3">
             Professional Red Light Therapy
           </p>
         </motion.div>
