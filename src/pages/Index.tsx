@@ -3,6 +3,7 @@ import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { HeroSection } from "@/components/HeroSection";
 import { SocialProofBar } from "@/components/SocialProofBar";
 import { ProductGrid } from "@/components/ProductGrid";
+import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { CertificationsSection } from "@/components/CertificationsSection";
 import { CompanySection } from "@/components/CompanySection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
@@ -20,6 +21,7 @@ const Index = () => {
         <HeroSection />
         <SocialProofBar />
         <ProductGrid />
+        <BeforeAfterSection />
         <CertificationsSection />
         <TestimonialsSection />
         <CompanySection />
