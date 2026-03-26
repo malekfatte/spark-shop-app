@@ -12,6 +12,14 @@ const navLinks = [
   { label: "Contact", href: "#contact", icon: Phone },
 ];
 
+const categoryLinks = [
+  { label: "Panels", href: "#products", icon: Layers, filter: "Panels" },
+  { label: "Full Body", href: "#products", icon: Zap, filter: "Full Body" },
+  { label: "Wearables", href: "#products", icon: Watch, filter: "Wearables" },
+  { label: "Lamps", href: "#products", icon: Lamp, filter: "Lamps" },
+  { label: "Accessories", href: "#products", icon: Package, filter: "Accessories" },
+];
+
 export const StoreHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
