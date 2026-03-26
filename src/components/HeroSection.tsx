@@ -65,7 +65,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.3 }}
-          className="mt-16 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-foreground"
+          className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-foreground"
         >
           {[
             { icon: Shield, label: "FDA Cleared" },

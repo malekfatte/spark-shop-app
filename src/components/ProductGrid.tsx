@@ -115,7 +115,7 @@ export const ProductGrid = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4"
           >
             {filtered.map((product, i) => (
               <ProductCard key={product.node.id} product={product} index={i} />

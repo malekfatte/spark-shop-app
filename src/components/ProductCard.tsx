@@ -69,10 +69,10 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
                 ${parseFloat(price.amount).toFixed(0)}
               </span>
             </div>
-            <p className="text-muted-foreground text-xs line-clamp-2 font-body font-light leading-relaxed flex-1">
+            <p className="text-muted-foreground text-[10px] sm:text-xs line-clamp-1 font-body font-light leading-relaxed flex-1">
               {node.description}
             </p>
-            <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/30">
+            <div className="flex items-center justify-between mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-border/30">
               <span className="font-body text-xs text-muted-foreground flex items-center gap-1 group-hover:text-primary/70 transition-colors">
                 View Details <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
               </span>
