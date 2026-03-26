@@ -127,7 +127,23 @@ export const StoreHeader = () => {
                 ))}
               </div>
 
-              <div className="mt-8 pt-6 border-t border-border/30">
+              <div className="mt-4 pt-4 border-t border-border/30">
+                <p className="px-3 mb-2 font-body text-[10px] text-muted-foreground tracking-[0.2em] uppercase">Shop by Category</p>
+                <div className="space-y-0.5">
+                  {categoryLinks.map((cat) => (
+                    <button
+                      key={cat.label}
+                      onClick={() => handleNavClick(cat.href)}
+                      className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl font-body text-sm text-foreground hover:bg-secondary/40 transition-colors"
+                    >
+                      <cat.icon className="h-4 w-4 text-muted-foreground" />
+                      {cat.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-border/30">
                 <div className="flex items-center justify-center gap-3 mb-4">
                   {socialLinks.map((link) => (
                     <a
