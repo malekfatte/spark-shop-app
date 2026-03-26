@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { type ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
+import { useUIStore } from "@/stores/uiStore";
 
 import { Plus, Loader2, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
@@ -14,6 +15,7 @@ interface ProductCardProps {
 export const ProductCard = ({ product, index }: ProductCardProps) => {
   const addItem = useCartStore(state => state.addItem);
   const isLoading = useCartStore(state => state.isLoading);
+  const openCart = useUIStore(state => state.openCart);
   const { node } = product;
   const firstVariant = node.variants.edges[0]?.node;
   const image = node.images.edges[0]?.node;
@@ -32,6 +34,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
       selectedOptions: firstVariant.selectedOptions || [],
     });
     toast.success("Added to cart", { description: node.title, position: "top-center" });
+    openCart();
   };
 
   return (
@@ -44,7 +47,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
     >
       <Link to={`/product/${node.handle}`} className="group block h-full">
         <div className="card-premium card-premium-hover rounded-2xl overflow-hidden h-full flex flex-col">
-          <div className="aspect-[4/5] overflow-hidden relative flex-shrink-0 bg-secondary/30">
+          <div className="aspect-square overflow-hidden relative flex-shrink-0 bg-secondary/30">
             {image ? (
               <img
                 src={image.url}
@@ -60,19 +63,19 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
               </div>
             )}
           </div>
-          <div className="p-5 flex flex-col flex-1">
+          <div className="p-3 sm:p-4 flex flex-col flex-1">
             <div className="flex items-start justify-between gap-2 mb-2">
-              <h3 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
+              <h3 className="font-display font-semibold text-sm sm:text-base text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-1">
                 {node.title}
               </h3>
               <span className="font-display font-bold text-lg text-navy whitespace-nowrap">
                 ${parseFloat(price.amount).toFixed(0)}
               </span>
             </div>
-            <p className="text-muted-foreground text-xs line-clamp-2 font-body font-light leading-relaxed flex-1">
+            <p className="text-muted-foreground text-[10px] sm:text-xs line-clamp-1 font-body font-light leading-relaxed flex-1">
               {node.description}
             </p>
-            <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/30">
+            <div className="flex items-center justify-between mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-border/30">
               <span className="font-body text-xs text-muted-foreground flex items-center gap-1 group-hover:text-primary/70 transition-colors">
                 View Details <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
               </span>

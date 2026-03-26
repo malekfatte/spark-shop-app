@@ -33,15 +33,15 @@ export const ProductGrid = () => {
   }, [products, activeCategory]);
 
   return (
-    <section id="products" className="py-20 sm:py-28 relative">
+    <section id="products" className="py-10 sm:py-16 relative">
       <div className="absolute inset-0 bg-noise" />
-      <div className="container mx-auto px-5 relative">
+      <div className="container mx-auto px-3 sm:px-5 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="text-center mb-6"
         >
           <p className="font-body text-primary font-medium tracking-[0.3em] uppercase text-[10px] mb-3">The Collection</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
@@ -57,7 +57,7 @@ export const ProductGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10"
+            className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6"
           >
             {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat.label;
@@ -115,7 +115,7 @@ export const ProductGrid = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4"
           >
             {filtered.map((product, i) => (
               <ProductCard key={product.node.id} product={product} index={i} />

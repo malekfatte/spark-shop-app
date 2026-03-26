@@ -9,20 +9,20 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[70vh] sm:min-h-[80vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <img src={heroBg} alt="Red Light Therapy Device" className="w-full h-full object-cover scale-110" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/75 to-background" />
         <div className="absolute inset-0 bg-noise" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-5 text-center pt-16">
+      <div className="relative z-10 container mx-auto px-4 text-center pt-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <p className="font-body text-primary font-medium tracking-[0.35em] uppercase text-[10px] sm:text-xs mb-6">
+          <p className="font-body text-primary font-medium tracking-[0.35em] uppercase text-[10px] sm:text-xs mb-3">
             Professional Red Light Therapy
           </p>
         </motion.div>
@@ -31,7 +31,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="font-display text-5xl sm:text-6xl md:text-8xl font-bold leading-[0.95] mb-8"
+          className="font-display text-4xl sm:text-5xl md:text-7xl font-bold leading-[0.95] mb-5"
         >
           <span className="text-gradient-hero">Heal Deeper.</span>
           <br />
@@ -42,7 +42,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-foreground max-w-lg mx-auto text-sm sm:text-base mb-10 leading-relaxed font-body font-medium"
+          className="text-foreground max-w-lg mx-auto text-xs sm:text-sm mb-6 leading-relaxed font-body font-medium"
         >
           FDA-approved red & near-infrared therapy panels engineered for pain relief, skin rejuvenation, and peak cellular performance.
         </motion.p>
@@ -65,7 +65,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.3 }}
-          className="mt-16 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-foreground"
+          className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-foreground"
         >
           {[
             { icon: Shield, label: "FDA Cleared" },
