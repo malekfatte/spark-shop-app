@@ -46,6 +46,7 @@ const results: Result[] = [
     duration: "12 weeks",
     description: "Improved collagen density, even skin tone, and enhanced overall radiance with full-body treatment.",
     gradient: "from-violet-400/20 to-fuchsia-400/20",
+    image: resultSkinRejuvenation,
   },
 ];
 
