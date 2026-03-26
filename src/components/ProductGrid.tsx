@@ -57,7 +57,7 @@ export const ProductGrid = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10"
+            className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6"
           >
             {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat.label;
