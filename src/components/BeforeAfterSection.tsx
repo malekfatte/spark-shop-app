@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Clock, Sparkles } from "lucide-react";
+import resultFineLines from "@/assets/result-fine-lines.jpg";
+import resultMuscleRecovery from "@/assets/result-muscle-recovery.jpg";
+import resultJointPain from "@/assets/result-joint-pain.jpg";
+import resultSkinRejuvenation from "@/assets/result-skin-rejuvenation.jpg";
 
 interface Result {
   title: string;
@@ -8,6 +12,7 @@ interface Result {
   duration: string;
   description: string;
   gradient: string;
+  image: string;
 }
 
 const results: Result[] = [
@@ -17,6 +22,7 @@ const results: Result[] = [
     duration: "8 weeks",
     description: "Visible reduction in fine lines and improved skin texture through consistent 660nm red light sessions.",
     gradient: "from-rose-400/20 to-amber-400/20",
+    image: resultFineLines,
   },
   {
     title: "Muscle Recovery",
@@ -24,6 +30,7 @@ const results: Result[] = [
     duration: "4 weeks",
     description: "Faster post-workout recovery and reduced muscle soreness using 850nm near-infrared therapy.",
     gradient: "from-sky-400/20 to-indigo-400/20",
+    image: resultMuscleRecovery,
   },
   {
     title: "Joint Pain Relief",
@@ -31,6 +38,7 @@ const results: Result[] = [
     duration: "6 weeks",
     description: "Significant reduction in joint stiffness and inflammation with dual-wavelength panel sessions.",
     gradient: "from-emerald-400/20 to-teal-400/20",
+    image: resultJointPain,
   },
   {
     title: "Skin Rejuvenation",
@@ -38,6 +46,7 @@ const results: Result[] = [
     duration: "12 weeks",
     description: "Improved collagen density, even skin tone, and enhanced overall radiance with full-body treatment.",
     gradient: "from-violet-400/20 to-fuchsia-400/20",
+    image: resultSkinRejuvenation,
   },
 ];
 
@@ -58,6 +67,18 @@ const ResultCard = ({ result, index }: { result: Result; index: number }) => {
           onClick={() => setShowAfter(!showAfter)}
           className={`relative w-full aspect-[4/3] bg-gradient-to-br ${result.gradient} transition-all duration-700 overflow-hidden`}
         >
+          {/* Result image */}
+          <img
+            src={result.image}
+            alt={result.title}
+            loading="lazy"
+            width={672}
+            height={512}
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
+              showAfter ? "opacity-100 scale-100" : "opacity-0 scale-110"
+            }`}
+          />
+
           {/* Before state */}
           <div
             className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ${
@@ -79,8 +100,8 @@ const ResultCard = ({ result, index }: { result: Result; index: number }) => {
             <div className="w-16 h-16 rounded-full bg-navy/80 backdrop-blur-sm flex items-center justify-center mb-3 border border-white/20">
               <Sparkles className="h-5 w-5 text-white" />
             </div>
-            <span className="font-display text-sm font-bold text-navy">After {result.duration}</span>
-            <p className="text-[10px] font-body text-muted-foreground/70 tracking-wider uppercase mt-1">Tap to reset</p>
+            <span className="font-display text-sm font-bold text-navy drop-shadow-md">After {result.duration}</span>
+            <p className="text-[10px] font-body text-white/70 tracking-wider uppercase mt-1 drop-shadow-sm">Tap to reset</p>
           </div>
 
           {/* Toggle indicator */}
