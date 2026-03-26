@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { type ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Loader2 } from "lucide-react";
+import { ShoppingCart, Loader2, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 
@@ -39,18 +39,17 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.08 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
       className="h-full"
     >
       <Link to={`/product/${node.handle}`} className="group block h-full">
-        <div className="h-full flex flex-col">
-          {/* Image — clean, edge-to-edge, rounded */}
-          <div className="aspect-[4/5] rounded-2xl overflow-hidden relative bg-card">
+        <div className="card-premium card-premium-hover rounded-2xl overflow-hidden h-full flex flex-col">
+          <div className="aspect-[4/5] overflow-hidden relative flex-shrink-0">
             {image ? (
               <img
                 src={image.url}
                 alt={image.altText || node.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 p-4"
                 loading="lazy"
               />
             ) : (
@@ -60,28 +59,31 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
                 </div>
               </div>
             )}
-            {/* Quick add overlay on hover */}
-            <div className="absolute inset-x-0 bottom-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+          </div>
+          <div className="p-5 flex flex-col flex-1">
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <h3 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                {node.title}
+              </h3>
+              <span className="font-display font-bold text-lg text-primary whitespace-nowrap">
+                ${parseFloat(price.amount).toFixed(0)}
+              </span>
+            </div>
+            <p className="text-muted-foreground text-xs line-clamp-2 font-body font-light leading-relaxed flex-1">
+              {node.description}
+            </p>
+            <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/30">
+              <span className="font-body text-xs text-muted-foreground flex items-center gap-1 group-hover:text-primary/70 transition-colors">
+                View Details <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+              </span>
               <Button
                 size="sm"
                 onClick={handleAddToCart}
                 disabled={isLoading || !firstVariant?.availableForSale}
-                className="w-full rounded-full h-9 text-xs font-body backdrop-blur-sm"
+                className="rounded-full h-9 px-4 text-xs font-body"
               >
-                {isLoading ? <Loader2 className="h-3 w-3 animate-spin" /> : <><ShoppingCart className="h-3 w-3 mr-1.5" />Add to Cart</>}
+                {isLoading ? <Loader2 className="h-3 w-3 animate-spin" /> : <><ShoppingCart className="h-3 w-3 mr-1.5" />Add</>}
               </Button>
-            </div>
-          </div>
-
-          {/* Info — clean like Heilys: name + price */}
-          <div className="pt-3 pb-1 flex flex-col gap-0.5">
-            <h3 className="font-display font-semibold text-sm sm:text-base text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-1">
-              {node.title}
-            </h3>
-            <div className="flex items-center gap-2">
-              <span className="font-display font-bold text-base text-foreground">
-                ${parseFloat(price.amount).toFixed(0)}
-              </span>
             </div>
           </div>
         </div>
