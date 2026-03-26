@@ -28,7 +28,7 @@ export const CartDrawer = () => {
         <Button variant="ghost" size="icon" className="relative hover:bg-secondary">
           <ShoppingCart className="h-5 w-5 text-foreground" />
           {totalItems > 0 && (
-            <Badge className="absolute -top-1.5 -right-1.5 h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px] font-body font-bold">
+            <Badge className="absolute -top-1.5 -right-1.5 h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px] font-body font-bold bg-navy text-white border-0">
               {totalItems}
             </Badge>
           )}
