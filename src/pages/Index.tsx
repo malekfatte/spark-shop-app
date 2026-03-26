@@ -18,6 +18,7 @@ const Index = () => {
         <CertificationsSection />
         <TestimonialsSection />
         <CompanySection />
+        <ContactSection />
       </main>
       <StoreFooter />
       <NewsletterPopup />
