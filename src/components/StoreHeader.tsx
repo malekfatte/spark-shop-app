@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ShieldCheck, Phone, Info, Home, Layers, Zap, Watch, Lamp, Package } from "lucide-react";
 import { useState } from "react";
 import { socialLinks } from "./StoreFooter";
+import { useUIStore } from "@/stores/uiStore";
 
 const navLinks = [
   { label: "Home", href: "/", icon: Home },
@@ -22,9 +23,13 @@ const categoryLinks = [
 
 export const StoreHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const setActiveCategory = useUIStore((s) => s.setActiveCategory);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href: string, filter?: string) => {
     setMenuOpen(false);
+    if (filter) {
+      setActiveCategory(filter);
+    }
     if (href.startsWith("#")) {
       const id = href.slice(1);
       setTimeout(() => {
@@ -133,7 +138,7 @@ export const StoreHeader = () => {
                   {categoryLinks.map((cat) => (
                     <button
                       key={cat.label}
-                      onClick={() => handleNavClick(cat.href)}
+                      onClick={() => handleNavClick(cat.href, cat.filter)}
                       className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl font-body text-sm text-foreground hover:bg-secondary/40 transition-colors"
                     >
                       <cat.icon className="h-4 w-4 text-muted-foreground" />
