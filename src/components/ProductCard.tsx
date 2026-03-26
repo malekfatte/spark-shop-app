@@ -57,8 +57,8 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary/40 to-secondary/10">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Plus className="h-6 w-6 text-primary/40" />
+                <div className="w-16 h-16 rounded-full bg-navy/10 flex items-center justify-center">
+                  <Plus className="h-6 w-6 text-navy/40" />
                 </div>
               </div>
             )}

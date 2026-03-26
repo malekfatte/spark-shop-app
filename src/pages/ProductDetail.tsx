@@ -30,7 +30,7 @@ const ProductDetail = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <Loader2 className="h-8 w-8 animate-spin text-navy" />
       </div>
     );
   }
@@ -86,8 +86,8 @@ const ProductDetail = () => {
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary/40 to-secondary/10">
-                    <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
-                      <ShoppingCart className="h-8 w-8 text-primary/30" />
+                    <div className="w-20 h-20 rounded-full bg-navy/10 flex items-center justify-center">
+                      <ShoppingCart className="h-8 w-8 text-navy/30" />
                     </div>
                   </div>
                 )}
@@ -99,7 +99,7 @@ const ProductDetail = () => {
                       key={i}
                       onClick={() => setSelectedImage(i)}
                       className={`w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all ${
-                        i === selectedImage ? 'border-primary glow-red-subtle' : 'border-border/30 hover:border-border'
+                        i === selectedImage ? 'border-navy shadow-sm' : 'border-border/30 hover:border-border'
                       }`}
                     >
                       <img src={img.node.url} alt={img.node.altText || ''} className="w-full h-full object-cover" />
@@ -117,7 +117,7 @@ const ProductDetail = () => {
               className="space-y-6"
             >
               <div>
-                <p className="font-body text-primary font-medium tracking-[0.2em] uppercase text-[10px] mb-2">Soléa</p>
+                <p className="font-body text-navy font-medium tracking-[0.2em] uppercase text-[10px] mb-2">Soléa</p>
                 <h1 className="font-display text-3xl sm:text-4xl font-bold text-foreground leading-tight">{product.title}</h1>
                 <p className="text-navy font-display text-3xl font-bold mt-3">
                   ${parseFloat(selectedVariant?.price.amount || '0').toFixed(2)}
@@ -146,8 +146,8 @@ const ProductDetail = () => {
                               onClick={() => variantIdx >= 0 && setSelectedVariantIndex(variantIdx)}
                               className={`px-4 py-2 text-xs font-body rounded-full border transition-all ${
                                 isSelected
-                                  ? 'border-primary bg-primary/10 text-primary'
-                                  : 'border-border hover:border-primary/30 text-muted-foreground'
+                                  ? 'border-navy bg-navy/10 text-navy'
+                                  : 'border-border hover:border-navy/30 text-muted-foreground'
                               }`}
                             >
                               {value}
@@ -178,7 +178,7 @@ const ProductDetail = () => {
               <Button
                 onClick={handleAddToCart}
                 size="lg"
-                className="w-full rounded-full py-6 font-body font-medium tracking-wide glow-red"
+                className="w-full rounded-full py-6 font-body font-medium tracking-wide bg-navy hover:bg-navy/90 text-white"
                 disabled={isCartLoading || !selectedVariant?.availableForSale}
               >
                 {isCartLoading ? (

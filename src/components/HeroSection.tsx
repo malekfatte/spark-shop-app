@@ -22,7 +22,7 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <p className="font-body text-primary font-medium tracking-[0.35em] uppercase text-[10px] sm:text-xs mb-3">
+          <p className="font-body text-navy font-medium tracking-[0.35em] uppercase text-[10px] sm:text-xs mb-3">
             Professional Red Light Therapy
           </p>
         </motion.div>
@@ -55,7 +55,7 @@ export const HeroSection = () => {
           <Button
             onClick={scrollToProducts}
             size="lg"
-            className="rounded-full px-10 py-6 text-sm font-body font-medium tracking-wide glow-red"
+            className="rounded-full px-10 py-6 text-sm font-body font-medium tracking-wide bg-navy hover:bg-navy/90 text-white"
           >
             Shop Collection <ArrowDown className="ml-2 h-4 w-4" />
           </Button>
@@ -74,7 +74,7 @@ export const HeroSection = () => {
             { icon: Sun, label: "Full Spectrum" },
           ].map(({ icon: Icon, label }) => (
             <div key={label} className="flex items-center gap-1.5">
-              <Icon className="h-3 w-3 text-primary" />
+              <Icon className="h-3 w-3 text-navy" />
               <span className="font-body text-[10px] sm:text-xs tracking-wider uppercase">{label}</span>
             </div>
           ))}

@@ -43,7 +43,7 @@ export const ProductGrid = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-6"
         >
-          <p className="font-body text-primary font-medium tracking-[0.3em] uppercase text-[10px] mb-3">The Collection</p>
+          <p className="font-body text-navy font-medium tracking-[0.3em] uppercase text-[10px] mb-3">The Collection</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
             Precision-Engineered<br />
             <span className="text-gradient-red italic">Therapy Devices</span>
@@ -75,13 +75,13 @@ export const ProductGrid = () => {
                     font-body text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full
                     transition-all duration-300 border
                     ${isActive
-                      ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20"
-                      : "bg-secondary/30 text-muted-foreground border-border/40 hover:border-primary/50 hover:text-foreground"
+                      ? "bg-navy text-white border-navy shadow-lg shadow-navy/20"
+                      : "bg-secondary/30 text-muted-foreground border-border/40 hover:border-navy/50 hover:text-foreground"
                     }
                   `}
                 >
                   {cat.label}
-                  <span className={`ml-1.5 text-[10px] sm:text-xs ${isActive ? "text-primary-foreground/70" : "text-muted-foreground/60"}`}>
+                  <span className={`ml-1.5 text-[10px] sm:text-xs ${isActive ? "text-white/70" : "text-muted-foreground/60"}`}>
                     {count}
                   </span>
                 </button>
@@ -92,7 +92,7 @@ export const ProductGrid = () => {
 
         {isLoading ? (
           <div className="flex justify-center py-24">
-            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            <Loader2 className="h-8 w-8 animate-spin text-navy" />
           </div>
         ) : error ? (
           <div className="text-center py-24 text-destructive font-body">
