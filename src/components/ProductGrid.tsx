@@ -41,7 +41,7 @@ export const ProductGrid = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="text-center mb-6"
         >
           <p className="font-body text-primary font-medium tracking-[0.3em] uppercase text-[10px] mb-3">The Collection</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
