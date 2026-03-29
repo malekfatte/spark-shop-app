@@ -9,11 +9,10 @@ import type { ShopifyProduct } from "@/lib/shopify";
 // Categories inspired by Heilys structure: product type based
 const CATEGORIES = [
   { label: "All", keywords: [] },
-  { label: "Panels", keywords: ["panel", "kr1500", "kr600", "kr300", "kr15", "kr900"] },
-  { label: "Full Body", keywords: ["full body", "kr1500", "mat"] },
-  { label: "Wearables", keywords: ["mask", "wrap", "foldable", "go2"] },
-  { label: "Lamps", keywords: ["bulb", "round"] },
-  { label: "Accessories", keywords: ["bag", "sleeping", "stand", "door"] },
+  { label: "Panels", keywords: ["panel", "236w", "desktop", "100w"] },
+  { label: "Wearables", keywords: ["mask", "cap", "baseball"] },
+  { label: "Mats", keywords: ["mat", "single-sided"] },
+  { label: "Portable", keywords: ["torch", "portable", "mini", "glowpocket"] },
 ] as const;
 
 function matchesCategory(product: ShopifyProduct, keywords: readonly string[]) {
