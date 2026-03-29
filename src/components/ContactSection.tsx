@@ -45,7 +45,7 @@ export const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
+          <h2 className="font-display text-3xl md:text-5xl font-medium text-foreground mb-4">
             Get in Touch
           </h2>
           <p className="text-muted-foreground font-body text-sm max-w-md mx-auto leading-relaxed">

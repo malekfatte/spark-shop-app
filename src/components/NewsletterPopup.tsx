@@ -100,7 +100,7 @@ export const NewsletterPopup = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full h-11 rounded-xl bg-navy hover:bg-navy/90 text-white font-body font-medium text-sm"
+                className="w-full h-11 rounded-xl bg-espresso hover:bg-espresso/90 text-white font-body font-normal text-sm tracking-wide"
               >
                 {isSubmitting ? "Subscribing..." : "Claim My 10% Off"}
               </Button>
