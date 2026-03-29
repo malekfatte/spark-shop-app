@@ -14,15 +14,14 @@ const socialLinks = [
 
 export { socialLinks, TikTokIcon };
 
-// Payment method SVG icons
 const PaymentIcons = () => (
-  <div className="flex items-center justify-center gap-3 mt-4">
+  <div className="flex items-center justify-center gap-3 mt-5">
     {["Visa", "Mastercard", "PayPal", "Shop Pay"].map((name) => (
       <div
         key={name}
-        className="h-7 px-3 rounded bg-secondary/40 border border-border/20 flex items-center justify-center"
+        className="h-7 px-3 rounded-full bg-warm/5 border border-border/15 flex items-center justify-center"
       >
-        <span className="font-body text-[9px] font-semibold text-muted-foreground tracking-wider uppercase">
+        <span className="font-body text-[9px] font-light text-muted-foreground tracking-[0.1em] uppercase">
           {name}
         </span>
       </div>
@@ -31,14 +30,14 @@ const PaymentIcons = () => (
 );
 
 export const StoreFooter = () => (
-  <footer className="border-t border-border/30 py-14 relative">
-    <div className="absolute inset-0 bg-noise" />
-    <div className="container mx-auto px-5 text-center relative">
-      <p className="font-display font-semibold text-lg text-foreground mb-2">Soléa</p>
+  <footer className="py-16 relative">
+    <div className="section-divider" />
+    <div className="container mx-auto px-5 text-center pt-14 relative">
+      <p className="font-display font-medium text-3xl text-foreground mb-3">Soléa</p>
       <p className="text-muted-foreground text-xs max-w-sm mx-auto font-body font-light leading-relaxed">
-        Professional red light therapy devices. FDA, CE, ROHS, FCC certified. Over 100 patents. Trusted by professionals worldwide.
+        Professional red light therapy devices. FDA, CE, ROHS, FCC certified. Trusted by professionals worldwide.
       </p>
-      <div className="flex items-center justify-center gap-4 mt-5">
+      <div className="flex items-center justify-center gap-4 mt-6">
         {socialLinks.map((link) => (
           <a
             key={link.label}
@@ -46,15 +45,16 @@ export const StoreFooter = () => (
             target="_blank"
             rel="noopener noreferrer"
             aria-label={link.label}
-            className="h-9 w-9 rounded-full border border-border/30 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+            className="h-10 w-10 rounded-full border border-border/25 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-warm/30 transition-all duration-300"
           >
             <link.icon className="h-4 w-4" />
           </a>
         ))}
       </div>
       <PaymentIcons />
-      <div className="mt-6 pt-6 border-t border-border/20">
-        <p className="text-muted-foreground/40 text-[10px] font-body tracking-wider uppercase">
+      <div className="mt-8 pt-8">
+        <div className="section-divider mb-6" />
+        <p className="text-muted-foreground/40 text-[10px] font-body tracking-[0.15em] uppercase font-light">
           © {new Date().getFullYear()} Soléa Technologies Inc.
         </p>
       </div>

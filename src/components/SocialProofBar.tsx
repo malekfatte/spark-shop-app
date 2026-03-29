@@ -14,22 +14,22 @@ export const SocialProofBar = () => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5 }}
-    className="py-6 border-y border-border/30 mb-2"
+    className="py-8"
   >
     <div className="container mx-auto px-5">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="section-divider mb-8" />
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {stats.map(({ icon: Icon, value, label }) => (
-          <div key={label} className="flex items-center gap-3 justify-center">
-            <div className="h-9 w-9 rounded-xl bg-primary/8 flex items-center justify-center flex-shrink-0">
-              <Icon className="h-4 w-4 text-navy" />
+          <div key={label} className="text-center">
+            <div className="h-10 w-10 rounded-full bg-warm-light flex items-center justify-center mx-auto mb-3">
+              <Icon className="h-4 w-4 text-warm" />
             </div>
-            <div>
-              <p className="font-display font-bold text-base text-foreground leading-none">{value}</p>
-              <p className="font-body text-[10px] text-muted-foreground tracking-wider uppercase mt-0.5">{label}</p>
-            </div>
+            <p className="font-display font-semibold text-2xl text-foreground leading-none mb-1">{value}</p>
+            <p className="font-body text-[10px] text-muted-foreground tracking-[0.15em] uppercase font-light">{label}</p>
           </div>
         ))}
       </div>
+      <div className="section-divider mt-8" />
     </div>
   </motion.div>
 );

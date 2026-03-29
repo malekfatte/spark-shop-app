@@ -44,10 +44,10 @@ export const FAQSection = () => (
         transition={{ duration: 0.6 }}
         className="text-center mb-10"
       >
-        <p className="font-body text-navy font-medium tracking-[0.3em] uppercase text-[10px] mb-3">
+        <p className="font-body text-muted-foreground font-light tracking-[0.3em] uppercase text-[10px] mb-4">
           FAQ
         </p>
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
+        <h2 className="font-display text-3xl md:text-5xl font-medium text-foreground">
           Common Questions
         </h2>
       </motion.div>

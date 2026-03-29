@@ -13,7 +13,7 @@ export const AnnouncementBar = () => {
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed top-14 left-0 right-0 z-40 bg-navy text-white overflow-hidden"
+          className="fixed top-16 left-0 right-0 z-40 bg-espresso text-white overflow-hidden"
         >
           <div className="container mx-auto px-5 py-2 flex items-center justify-center gap-2 relative">
             <Truck className="h-3.5 w-3.5 flex-shrink-0" />

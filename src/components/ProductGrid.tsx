@@ -6,7 +6,6 @@ import { Loader2, PackageOpen } from "lucide-react";
 import { motion } from "framer-motion";
 import type { ShopifyProduct } from "@/lib/shopify";
 
-// Categories inspired by Heilys structure: product type based
 const CATEGORIES = [
   { label: "All", keywords: [] },
   { label: "Panels", keywords: ["panel", "236w", "desktop", "100w"] },
@@ -33,31 +32,29 @@ export const ProductGrid = () => {
   }, [products, activeCategory]);
 
   return (
-    <section id="products" className="py-6 sm:py-10 relative">
-      <div className="absolute inset-0 bg-noise" />
+    <section id="products" className="py-10 sm:py-16 relative">
       <div className="container mx-auto px-3 sm:px-5 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-6"
+          className="text-center mb-10"
         >
-          <p className="font-body text-navy font-medium tracking-[0.3em] uppercase text-[10px] mb-3">The Collection</p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+          <p className="font-body text-muted-foreground font-light tracking-[0.3em] uppercase text-[10px] mb-4">The Collection</p>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium text-foreground leading-tight">
             Precision-Engineered<br />
-            <span className="text-gradient-red italic">Therapy Devices</span>
+            <span className="text-gradient-warm italic font-light">Therapy Devices</span>
           </h2>
         </motion.div>
 
-        {/* Category filter tabs */}
         {products && products.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6"
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10"
           >
             {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat.label;
@@ -72,16 +69,16 @@ export const ProductGrid = () => {
                   key={cat.label}
                   onClick={() => setActiveCategory(cat.label)}
                   className={`
-                    font-body text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full
-                    transition-all duration-300 border
+                    font-body text-[11px] sm:text-xs px-5 sm:px-6 py-2.5 sm:py-3 rounded-full
+                    transition-all duration-300 border font-light tracking-[0.1em] uppercase
                     ${isActive
-                      ? "bg-navy text-white border-navy shadow-lg shadow-navy/20"
-                      : "bg-secondary/30 text-muted-foreground border-border/40 hover:border-navy/50 hover:text-foreground"
+                      ? "bg-espresso text-white border-espresso shadow-lg shadow-espresso/10"
+                      : "bg-transparent text-muted-foreground border-border/50 hover:border-warm/40 hover:text-foreground"
                     }
                   `}
                 >
                   {cat.label}
-                  <span className={`ml-1.5 text-[10px] sm:text-xs ${isActive ? "text-white/70" : "text-muted-foreground/60"}`}>
+                  <span className={`ml-2 text-[10px] ${isActive ? "text-white/60" : "text-muted-foreground/50"}`}>
                     {count}
                   </span>
                 </button>
@@ -92,7 +89,7 @@ export const ProductGrid = () => {
 
         {isLoading ? (
           <div className="flex justify-center py-24">
-            <Loader2 className="h-8 w-8 animate-spin text-navy" />
+            <Loader2 className="h-8 w-8 animate-spin text-warm" />
           </div>
         ) : error ? (
           <div className="text-center py-24 text-destructive font-body">
@@ -115,7 +112,7 @@ export const ProductGrid = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4"
+            className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
           >
             {filtered.map((product, i) => (
               <ProductCard key={product.node.id} product={product} index={i} />
