@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,53 +6,48 @@
 
 @layer base {
   :root {
-    --background: 30 25% 96%;
-    --foreground: 25 15% 15%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
 
-    --card: 30 20% 98%;
-    --card-foreground: 25 15% 15%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 8%;
 
-    --popover: 30 20% 98%;
-    --popover-foreground: 25 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 25 45% 35%;
-    --primary-foreground: 30 20% 98%;
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 30 15% 90%;
-    --secondary-foreground: 25 15% 25%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 30 12% 90%;
-    --muted-foreground: 25 8% 50%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 25 45% 35%;
-    --accent-foreground: 30 20% 98%;
+    --accent: 73 100% 63%;
+    --accent-foreground: 0 0% 8%;
 
     --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 15% 87%;
-    --input: 30 15% 87%;
-    --ring: 25 45% 35%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 8%;
 
     --radius: 0.75rem;
 
-    --warm: 25 45% 35%;
-    --warm-light: 30 40% 92%;
-    --warm-dark: 25 30% 22%;
-    --terracotta: 15 55% 50%;
-    --sage: 140 15% 45%;
-    --sand: 35 30% 85%;
-    --cream: 35 35% 95%;
-    --espresso: 25 25% 18%;
+    --navy: 0 0% 8%;
+    --navy-light: 0 0% 14%;
+    --lime: 73 100% 63%;
 
-    --sidebar-background: 30 20% 97%;
-    --sidebar-foreground: 25 15% 15%;
-    --sidebar-primary: 25 45% 35%;
-    --sidebar-primary-foreground: 30 20% 98%;
-    --sidebar-accent: 30 15% 93%;
-    --sidebar-accent-foreground: 25 15% 15%;
-    --sidebar-border: 30 15% 87%;
-    --sidebar-ring: 25 45% 35%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 0 0% 8%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 95%;
+    --sidebar-accent-foreground: 0 0% 8%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 8%;
   }
 }
 
@@ -63,42 +58,28 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 400;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: -0.02em;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: -0.03em;
     font-weight: 500;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'DM Sans', sans-serif;
   }
 
   .font-body {
-    font-family: 'Inter', sans-serif;
-  }
-
-  .text-gradient-warm {
-    background: linear-gradient(135deg, hsl(25 45% 35%) 0%, hsl(15 55% 50%) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: 'DM Sans', sans-serif;
   }
 
   .text-gradient-hero {
-    background: linear-gradient(135deg, hsl(25 25% 18%) 0%, hsl(25 30% 30%) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-gradient-red {
-    background: linear-gradient(135deg, hsl(15 55% 50%) 0%, hsl(25 45% 35%) 100%);
+    background: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 25%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -108,27 +89,23 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
   }
 
-  .bg-warm-gradient {
-    background: linear-gradient(135deg, hsl(35 35% 95%) 0%, hsl(30 25% 96%) 50%, hsl(35 30% 93%) 100%);
-  }
-
   .card-premium {
-    background: linear-gradient(145deg, hsl(30 20% 99%) 0%, hsl(35 20% 97%) 100%);
-    border: 1px solid hsl(30 15% 90%);
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
   }
 
   .card-premium-hover {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .card-premium-hover:hover {
-    border-color: hsl(25 45% 35% / 0.25);
-    box-shadow: 0 25px 60px -15px hsl(25 25% 18% / 0.08), 0 0 0 1px hsl(25 45% 35% / 0.08);
-    transform: translateY(-6px);
+    border-color: hsl(0 0% 75%);
+    box-shadow: 0 20px 50px -15px hsl(0 0% 0% / 0.08);
+    transform: translateY(-4px);
   }
 
   .section-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(30 15% 85%), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
   }
 }
