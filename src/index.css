@@ -1,47 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap');
-
-@font-face {
-  font-family: 'Omnes';
-  src: url('/fonts/Omnes_Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Omnes';
-  src: url('/fonts/Omnes_Light_Italic.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Omnes';
-  src: url('/fonts/Omnes_Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Omnes';
-  src: url('/fonts/Omnes_SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Omnes';
-  src: url('/fonts/Omnes_Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Omnes';
-  src: url('/fonts/Omnes_Black.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -49,49 +6,53 @@
 
 @layer base {
   :root {
-    --background: 220 20% 96%;
-    --foreground: 220 20% 12%;
+    --background: 30 25% 96%;
+    --foreground: 25 15% 15%;
 
-    --card: 220 20% 99%;
-    --card-foreground: 220 20% 12%;
+    --card: 30 20% 98%;
+    --card-foreground: 25 15% 15%;
 
-    --popover: 220 20% 99%;
-    --popover-foreground: 220 20% 12%;
+    --popover: 30 20% 98%;
+    --popover-foreground: 25 15% 15%;
 
-    --primary: 0 70% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 25 45% 35%;
+    --primary-foreground: 30 20% 98%;
 
-    --secondary: 220 15% 91%;
-    --secondary-foreground: 220 20% 30%;
+    --secondary: 30 15% 90%;
+    --secondary-foreground: 25 15% 25%;
 
-    --muted: 220 15% 91%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 30 12% 90%;
+    --muted-foreground: 25 8% 50%;
 
-    --accent: 0 70% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 25 45% 35%;
+    --accent-foreground: 30 20% 98%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 88%;
-    --input: 220 15% 88%;
-    --ring: 0 85% 50%;
+    --border: 30 15% 87%;
+    --input: 30 15% 87%;
+    --ring: 25 45% 35%;
 
     --radius: 0.75rem;
 
-    --gold: 40 80% 45%;
-    --gold-muted: 40 40% 50%;
-    --glow-red: 0 85% 50%;
-    --navy: 210 55% 25%;
+    --warm: 25 45% 35%;
+    --warm-light: 30 40% 92%;
+    --warm-dark: 25 30% 22%;
+    --terracotta: 15 55% 50%;
+    --sage: 140 15% 45%;
+    --sand: 35 30% 85%;
+    --cream: 35 35% 95%;
+    --espresso: 25 25% 18%;
 
-    --sidebar-background: 220 20% 97%;
-    --sidebar-foreground: 220 20% 12%;
-    --sidebar-primary: 0 85% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 15% 93%;
-    --sidebar-accent-foreground: 220 20% 12%;
-    --sidebar-border: 220 15% 88%;
-    --sidebar-ring: 0 85% 50%;
+    --sidebar-background: 30 20% 97%;
+    --sidebar-foreground: 25 15% 15%;
+    --sidebar-primary: 25 45% 35%;
+    --sidebar-primary-foreground: 30 20% 98%;
+    --sidebar-accent: 30 15% 93%;
+    --sidebar-accent-foreground: 25 15% 15%;
+    --sidebar-border: 30 15% 87%;
+    --sidebar-ring: 25 45% 35%;
   }
 }
 
@@ -102,64 +63,58 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Omnes', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Omnes', sans-serif;
-    letter-spacing: -0.01em;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: -0.02em;
+    font-weight: 500;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: 'Omnes', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
   }
 
   .font-body {
-    font-family: 'Omnes', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
-  .glow-red {
-    box-shadow: 0 0 40px hsl(0 85% 50% / 0.35), 0 0 80px hsl(0 85% 50% / 0.1);
-  }
-
-  .glow-red-subtle {
-    box-shadow: 0 0 20px hsl(0 85% 50% / 0.15);
-  }
-
-  .glow-gold {
-    box-shadow: 0 0 30px hsl(40 80% 55% / 0.2);
-  }
-
-  .text-gradient-hero {
-    background: linear-gradient(135deg, hsl(220 20% 10%) 0%, hsl(220 15% 30%) 100%);
+  .text-gradient-warm {
+    background: linear-gradient(135deg, hsl(25 45% 35%) 0%, hsl(15 55% 50%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .text-gradient-gold {
-    background: linear-gradient(135deg, hsl(40, 80%, 65%), hsl(35, 90%, 50%));
+  .text-gradient-hero {
+    background: linear-gradient(135deg, hsl(25 25% 18%) 0%, hsl(25 30% 30%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-red {
-    background: linear-gradient(135deg, hsl(0, 85%, 60%), hsl(350, 90%, 45%));
+    background: linear-gradient(135deg, hsl(15 55% 50%) 0%, hsl(25 45% 35%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .bg-noise {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  }
+
+  .bg-warm-gradient {
+    background: linear-gradient(135deg, hsl(35 35% 95%) 0%, hsl(30 25% 96%) 50%, hsl(35 30% 93%) 100%);
   }
 
   .card-premium {
-    background: linear-gradient(145deg, hsl(220 20% 99%) 0%, hsl(220 20% 97%) 100%);
-    border: 1px solid hsl(220 15% 90%);
+    background: linear-gradient(145deg, hsl(30 20% 99%) 0%, hsl(35 20% 97%) 100%);
+    border: 1px solid hsl(30 15% 90%);
   }
 
   .card-premium-hover {
@@ -167,8 +122,13 @@
   }
 
   .card-premium-hover:hover {
-    border-color: hsl(210 55% 25% / 0.3);
-    box-shadow: 0 20px 60px -15px hsl(0 0% 0% / 0.08), 0 0 0 1px hsl(210 55% 25% / 0.1);
-    transform: translateY(-4px);
+    border-color: hsl(25 45% 35% / 0.25);
+    box-shadow: 0 25px 60px -15px hsl(25 25% 18% / 0.08), 0 0 0 1px hsl(25 45% 35% / 0.08);
+    transform: translateY(-6px);
+  }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(30 15% 85%), transparent);
   }
 }
