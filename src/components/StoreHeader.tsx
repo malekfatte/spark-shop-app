@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { CartDrawer } from "./CartDrawer";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ShieldCheck, Phone, Info, Home, Layers, Zap, Watch, Lamp, Package } from "lucide-react";
+import { Menu, X, ShieldCheck, Phone, Info, Home, Layers, Watch, Zap } from "lucide-react";
 import { useState } from "react";
 import { socialLinks } from "./StoreFooter";
 import { useUIStore } from "@/stores/uiStore";
@@ -15,10 +15,9 @@ const navLinks = [
 
 const categoryLinks = [
   { label: "Panels", href: "#products", icon: Layers, filter: "Panels" },
-  { label: "Full Body", href: "#products", icon: Zap, filter: "Full Body" },
   { label: "Wearables", href: "#products", icon: Watch, filter: "Wearables" },
-  { label: "Lamps", href: "#products", icon: Lamp, filter: "Lamps" },
-  { label: "Accessories", href: "#products", icon: Package, filter: "Accessories" },
+  { label: "Mats", href: "#products", icon: Layers, filter: "Mats" },
+  { label: "Portable", href: "#products", icon: Zap, filter: "Portable" },
 ];
 
 export const StoreHeader = () => {
@@ -44,21 +43,20 @@ export const StoreHeader = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-2xl border-b border-border/30"
+        className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-2xl border-b border-border/20"
       >
-        <div className="container mx-auto px-5 h-14 flex items-center justify-between">
+        <div className="container mx-auto px-5 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <span className="font-display font-semibold text-lg tracking-tight text-foreground">Soléa</span>
+            <span className="font-display font-medium text-2xl tracking-tight text-foreground">Soléa</span>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               link.href.startsWith("#") ? (
                 <button
                   key={link.label}
                   onClick={() => handleNavClick(link.href)}
-                  className="font-body text-xs text-muted-foreground hover:text-foreground tracking-wider uppercase transition-colors"
+                  className="font-body text-[11px] text-muted-foreground hover:text-foreground tracking-[0.15em] uppercase transition-colors duration-300"
                 >
                   {link.label}
                 </button>
@@ -66,7 +64,7 @@ export const StoreHeader = () => {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="font-body text-xs text-muted-foreground hover:text-foreground tracking-wider uppercase transition-colors"
+                  className="font-body text-[11px] text-muted-foreground hover:text-foreground tracking-[0.15em] uppercase transition-colors duration-300"
                 >
                   {link.label}
                 </Link>
@@ -74,12 +72,11 @@ export const StoreHeader = () => {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <CartDrawer />
-            {/* Mobile hamburger */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden flex items-center justify-center h-9 w-9 rounded-full hover:bg-secondary/50 transition-colors"
+              className="md:hidden flex items-center justify-center h-10 w-10 rounded-full hover:bg-secondary/50 transition-colors"
               aria-label="Toggle menu"
             >
               {menuOpen ? <X className="h-5 w-5 text-foreground" /> : <Menu className="h-5 w-5 text-foreground" />}
@@ -88,7 +85,6 @@ export const StoreHeader = () => {
         </div>
       </motion.header>
 
-      {/* Mobile menu overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -96,7 +92,7 @@ export const StoreHeader = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-40 bg-espresso/30 backdrop-blur-sm md:hidden"
             onClick={() => setMenuOpen(false)}
           >
             <motion.nav
@@ -105,7 +101,7 @@ export const StoreHeader = () => {
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
-              className="absolute right-0 top-0 h-full w-64 bg-background border-l border-border/30 pt-20 px-6"
+              className="absolute right-0 top-0 h-full w-72 bg-background border-l border-border/20 pt-20 px-6"
             >
               <div className="space-y-1">
                 {navLinks.map((link) => (
@@ -113,9 +109,9 @@ export const StoreHeader = () => {
                     <button
                       key={link.label}
                       onClick={() => handleNavClick(link.href)}
-                      className="flex items-center gap-3 w-full px-3 py-3 rounded-xl font-body text-sm text-foreground hover:bg-secondary/40 transition-colors"
+                      className="flex items-center gap-3 w-full px-3 py-3.5 rounded-xl font-body text-sm text-foreground hover:bg-warm-light transition-colors"
                     >
-                      <link.icon className="h-4 w-4 text-navy" />
+                      <link.icon className="h-4 w-4 text-warm" />
                       {link.label}
                     </button>
                   ) : (
@@ -123,23 +119,23 @@ export const StoreHeader = () => {
                       key={link.label}
                       to={link.href}
                       onClick={() => setMenuOpen(false)}
-                      className="flex items-center gap-3 w-full px-3 py-3 rounded-xl font-body text-sm text-foreground hover:bg-secondary/40 transition-colors"
+                      className="flex items-center gap-3 w-full px-3 py-3.5 rounded-xl font-body text-sm text-foreground hover:bg-warm-light transition-colors"
                     >
-                      <link.icon className="h-4 w-4 text-navy" />
+                      <link.icon className="h-4 w-4 text-warm" />
                       {link.label}
                     </Link>
                   )
                 ))}
               </div>
 
-              <div className="mt-4 pt-4 border-t border-border/30">
-                <p className="px-3 mb-2 font-body text-[10px] text-muted-foreground tracking-[0.2em] uppercase">Shop by Category</p>
+              <div className="mt-5 pt-5 border-t border-border/20">
+                <p className="px-3 mb-3 font-body text-[10px] text-muted-foreground tracking-[0.2em] uppercase font-light">Shop by Category</p>
                 <div className="space-y-0.5">
                   {categoryLinks.map((cat) => (
                     <button
                       key={cat.label}
                       onClick={() => handleNavClick(cat.href, cat.filter)}
-                      className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl font-body text-sm text-foreground hover:bg-secondary/40 transition-colors"
+                      className="flex items-center gap-3 w-full px-3 py-3 rounded-xl font-body text-sm text-foreground hover:bg-warm-light transition-colors"
                     >
                       <cat.icon className="h-4 w-4 text-muted-foreground" />
                       {cat.label}
@@ -148,7 +144,7 @@ export const StoreHeader = () => {
                 </div>
               </div>
 
-              <div className="mt-6 pt-6 border-t border-border/30">
+              <div className="mt-6 pt-6 border-t border-border/20">
                 <div className="flex items-center justify-center gap-3 mb-4">
                   {socialLinks.map((link) => (
                     <a
@@ -157,13 +153,13 @@ export const StoreHeader = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={link.label}
-                      className="h-8 w-8 rounded-full border border-border/30 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+                      className="h-9 w-9 rounded-full border border-border/30 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
                     >
                       <link.icon className="h-3.5 w-3.5" />
                     </a>
                   ))}
                 </div>
-                <p className="text-muted-foreground/40 text-[10px] font-body tracking-wider uppercase text-center">
+                <p className="text-muted-foreground/40 text-[10px] font-body tracking-[0.15em] uppercase text-center font-light">
                   © {new Date().getFullYear()} Soléa
                 </p>
               </div>
