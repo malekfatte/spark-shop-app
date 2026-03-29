@@ -17,15 +17,6 @@ export const HeroSection = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 text-center pt-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-        >
-          <p className="font-body text-muted-foreground font-light tracking-[0.4em] uppercase text-[10px] sm:text-[11px] mb-6">
-            Naturally Therapeutic · Precision Engineered
-          </p>
-        </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
