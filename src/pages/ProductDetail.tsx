@@ -44,7 +44,7 @@ const ProductDetail = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-navy" />
+        <Loader2 className="h-8 w-8 animate-spin text-foreground" />
       </div>
     );
   }
@@ -102,9 +102,9 @@ const ProductDetail = () => {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary/40 to-secondary/10">
-                    <div className="w-20 h-20 rounded-full bg-navy/10 flex items-center justify-center">
-                      <ShoppingCart className="h-8 w-8 text-navy/30" />
+                  <div className="w-full h-full flex items-center justify-center bg-secondary">
+                    <div className="w-20 h-20 rounded-full bg-border flex items-center justify-center">
+                      <ShoppingCart className="h-8 w-8 text-muted-foreground" />
                     </div>
                   </div>
                 )}
@@ -116,7 +116,7 @@ const ProductDetail = () => {
                       key={i}
                       onClick={() => setSelectedImage(i)}
                       className={`w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all ${
-                        i === selectedImage ? 'border-navy shadow-sm' : 'border-border/30 hover:border-border'
+                        i === selectedImage ? 'border-foreground shadow-sm' : 'border-border hover:border-foreground/30'
                       }`}
                     >
                       <img src={img.node.url} alt={img.node.altText || ''} className="w-full h-full object-cover" />
@@ -134,9 +134,9 @@ const ProductDetail = () => {
               className="space-y-6"
             >
               <div>
-                <p className="font-body text-navy font-medium tracking-[0.2em] uppercase text-[10px] mb-2">Soléa</p>
-                <h1 className="font-display text-3xl sm:text-4xl font-bold text-foreground leading-tight">{product.title}</h1>
-                <p className="text-foreground font-display text-3xl font-semibold mt-3">
+                <p className="font-body text-muted-foreground font-light tracking-[0.2em] uppercase text-[10px] mb-2">Soléa</p>
+                <h1 className="font-display text-3xl sm:text-4xl text-foreground leading-tight">{product.title}</h1>
+                <p className="text-foreground font-display text-3xl mt-3">
                   ${parseFloat(selectedVariant?.price.amount || '0').toFixed(2)}
                 </p>
               </div>
@@ -162,8 +162,8 @@ const ProductDetail = () => {
                               onClick={() => variantIdx >= 0 && setSelectedVariantIndex(variantIdx)}
                               className={`px-4 py-2 text-xs font-body rounded-full border transition-all ${
                                 isSelected
-                                  ? 'border-navy bg-navy/10 text-navy'
-                                  : 'border-border hover:border-navy/30 text-muted-foreground'
+                                  ? 'border-foreground bg-foreground text-background'
+                                  : 'border-border hover:border-foreground/30 text-muted-foreground'
                               }`}
                             >
                               {value}
@@ -195,7 +195,7 @@ const ProductDetail = () => {
                 ref={addToCartRef}
                 onClick={handleAddToCart}
                 size="lg"
-                className="w-full rounded-full py-6 font-body font-medium tracking-wide bg-navy hover:bg-navy/90 text-white"
+                className="w-full rounded-full py-6 font-body font-medium tracking-wide bg-foreground hover:bg-foreground/90 text-background"
                 disabled={isCartLoading || !selectedVariant?.availableForSale}
               >
                 {isCartLoading ? (
@@ -230,16 +230,16 @@ const ProductDetail = () => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-2xl border-t border-border/30"
+            className="fixed bottom-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-2xl border-t border-border"
           >
             <div className="container mx-auto px-5 py-3 flex items-center justify-between gap-4">
               <div className="flex items-center gap-3 min-w-0">
-                <p className="font-display font-semibold text-sm text-foreground truncate">{product.title}</p>
-                <p className="font-display font-bold text-lg text-navy whitespace-nowrap">${totalPrice}</p>
+                <p className="font-display text-sm text-foreground truncate">{product.title}</p>
+                <p className="font-display text-lg text-foreground whitespace-nowrap">${totalPrice}</p>
               </div>
               <Button
                 onClick={handleAddToCart}
-                className="rounded-full px-6 py-5 font-body text-sm bg-navy hover:bg-navy/90 text-white flex-shrink-0 gap-2"
+                className="rounded-full px-6 py-5 font-body text-sm bg-foreground hover:bg-foreground/90 text-background flex-shrink-0 gap-2"
                 disabled={isCartLoading || !selectedVariant.availableForSale}
               >
                 {isCartLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <ShoppingCart className="h-4 w-4" />}
