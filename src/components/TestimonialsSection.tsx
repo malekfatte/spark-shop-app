@@ -32,7 +32,7 @@ const userTestimonials = [
 const StarRating = ({ count }: { count: number }) => (
   <div className="flex gap-0.5">
     {Array.from({ length: count }).map((_, i) => (
-      <Star key={i} className="h-3 w-3 fill-amber-400 text-amber-400" />
+      <Star key={i} className="h-3 w-3 fill-accent text-accent" />
     ))}
   </div>
 );
@@ -41,18 +41,16 @@ export const TestimonialsSection = () => {
   const [activeDr, setActiveDr] = useState(0);
 
   return (
-    <section className="py-12 sm:py-20 relative border-t border-border/20">
-      <div className="absolute inset-0 bg-noise" />
+    <section className="py-12 sm:py-20 relative border-t border-border">
       <div className="container mx-auto px-4 sm:px-5 relative">
-        {/* Doctor Testimonials — featured spotlight style */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-6"
         >
-          <p className="font-body text-navy font-medium tracking-[0.3em] uppercase text-[10px] mb-3">Expert Endorsed</p>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+          <p className="font-body text-muted-foreground font-light tracking-[0.3em] uppercase text-[10px] mb-3">Expert Endorsed</p>
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl text-foreground">
             Trusted by Healthcare Professionals
           </h2>
         </motion.div>
@@ -63,19 +61,17 @@ export const TestimonialsSection = () => {
           viewport={{ once: true }}
           className="max-w-2xl mx-auto mb-14"
         >
-          {/* Featured quote */}
-          <div className="relative bg-navy/[0.03] border border-navy/10 rounded-2xl p-6 sm:p-8 mb-4">
-            <Quote className="absolute top-5 left-5 h-8 w-8 text-navy/10" />
+          <div className="relative bg-secondary border border-border rounded-2xl p-6 sm:p-8 mb-4">
+            <Quote className="absolute top-5 left-5 h-8 w-8 text-border" />
             <p className="text-foreground text-base sm:text-lg font-body leading-relaxed text-center relative z-10 italic">
               "{doctorTestimonials[activeDr].quote}"
             </p>
             <div className="text-center mt-5">
-              <p className="font-display font-bold text-sm text-foreground">{doctorTestimonials[activeDr].name}</p>
-              <p className="text-navy text-xs font-body">{doctorTestimonials[activeDr].title}</p>
+              <p className="font-display text-sm text-foreground">{doctorTestimonials[activeDr].name}</p>
+              <p className="text-muted-foreground text-xs font-body">{doctorTestimonials[activeDr].title}</p>
             </div>
           </div>
 
-          {/* Doctor selector pills */}
           <div className="flex justify-center gap-2">
             {doctorTestimonials.map((dr, i) => (
               <button
@@ -83,8 +79,8 @@ export const TestimonialsSection = () => {
                 onClick={() => setActiveDr(i)}
                 className={`px-4 py-2 rounded-full text-xs font-body transition-all duration-300 ${
                   i === activeDr
-                    ? "bg-navy text-white shadow-sm"
-                    : "bg-secondary/40 text-muted-foreground hover:bg-secondary/60"
+                    ? "bg-foreground text-background shadow-sm"
+                    : "bg-secondary text-muted-foreground hover:bg-border"
                 }`}
               >
                 {dr.name}
@@ -93,15 +89,14 @@ export const TestimonialsSection = () => {
           </div>
         </motion.div>
 
-        {/* User Testimonials — masonry-like stagger */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-6"
         >
-          <p className="font-body text-navy font-medium tracking-[0.3em] uppercase text-[10px] mb-3">Real Results</p>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+          <p className="font-body text-muted-foreground font-light tracking-[0.3em] uppercase text-[10px] mb-3">Real Results</p>
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl text-foreground">
             What Our Customers Say
           </h2>
         </motion.div>
@@ -116,16 +111,16 @@ export const TestimonialsSection = () => {
               transition={{ delay: i * 0.06 }}
               className="break-inside-avoid mb-3 sm:mb-4"
             >
-              <div className={`card-premium rounded-xl p-4 sm:p-5 ${i % 3 === 0 ? 'border-l-2 border-l-navy/20' : ''}`}>
+              <div className={`card-premium rounded-xl p-4 sm:p-5 ${i % 3 === 0 ? 'border-l-2 border-l-accent/30' : ''}`}>
                 <StarRating count={t.stars} />
                 <p className="text-foreground text-xs sm:text-sm font-body leading-relaxed mt-3 mb-3">"{t.quote}"</p>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-display font-semibold text-xs text-foreground">{t.name}</p>
+                    <p className="font-display text-xs text-foreground">{t.name}</p>
                     <p className="text-muted-foreground text-[10px] font-body">{t.location}</p>
                   </div>
-                  <div className="h-7 w-7 rounded-full bg-navy/10 flex items-center justify-center">
-                    <span className="text-navy font-display font-bold text-[10px]">{t.name.charAt(0)}</span>
+                  <div className="h-7 w-7 rounded-full bg-secondary flex items-center justify-center">
+                    <span className="text-foreground font-display text-[10px]">{t.name.charAt(0)}</span>
                   </div>
                 </div>
               </div>

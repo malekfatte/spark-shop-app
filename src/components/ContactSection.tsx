@@ -36,7 +36,6 @@ export const ContactSection = () => {
 
   return (
     <section id="contact" className="py-24 relative">
-      <div className="absolute inset-0 bg-noise opacity-40" />
       <div className="container mx-auto px-5 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -45,7 +44,7 @@ export const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="font-display text-3xl md:text-5xl font-medium text-foreground mb-4">
+          <h2 className="font-display text-3xl md:text-5xl text-foreground mb-4">
             Get in Touch
           </h2>
           <p className="text-muted-foreground font-body text-sm max-w-md mx-auto leading-relaxed">
@@ -54,7 +53,6 @@ export const ContactSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          {/* Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -63,16 +61,13 @@ export const ContactSection = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="font-display text-lg font-semibold text-foreground mb-6">
+              <h3 className="font-display text-lg text-foreground mb-6">
                 Contact Information
               </h3>
               <div className="space-y-5">
-                <a
-                  href="mailto:info@solea.com"
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Mail className="h-4 w-4 text-primary" />
+                <a href="mailto:info@solea.com" className="flex items-center gap-4 group">
+                  <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-border transition-colors">
+                    <Mail className="h-4 w-4 text-foreground" />
                   </div>
                   <div>
                     <p className="text-[10px] font-body uppercase tracking-wider text-muted-foreground mb-0.5">Email</p>
@@ -80,12 +75,9 @@ export const ContactSection = () => {
                   </div>
                 </a>
 
-                <a
-                  href="tel:+18001234567"
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Phone className="h-4 w-4 text-primary" />
+                <a href="tel:+18001234567" className="flex items-center gap-4 group">
+                  <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-border transition-colors">
+                    <Phone className="h-4 w-4 text-foreground" />
                   </div>
                   <div>
                     <p className="text-[10px] font-body uppercase tracking-wider text-muted-foreground mb-0.5">Phone</p>
@@ -94,8 +86,8 @@ export const ContactSection = () => {
                 </a>
 
                 <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <MapPin className="h-4 w-4 text-primary" />
+                  <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center">
+                    <MapPin className="h-4 w-4 text-foreground" />
                   </div>
                   <div>
                     <p className="text-[10px] font-body uppercase tracking-wider text-muted-foreground mb-0.5">Location</p>
@@ -105,14 +97,13 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            <div className="p-5 rounded-2xl border border-border/30 bg-card/50">
+            <div className="p-5 rounded-2xl border border-border bg-secondary">
               <p className="text-xs font-body text-muted-foreground leading-relaxed">
                 We typically respond within <span className="text-foreground font-medium">24 hours</span>. For urgent inquiries, please call us directly.
               </p>
             </div>
           </motion.div>
 
-          {/* Contact form */}
           <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 20 }}
@@ -122,47 +113,41 @@ export const ContactSection = () => {
             className="space-y-4"
           >
             <div>
-              <label className="text-[10px] font-body uppercase tracking-wider text-muted-foreground mb-1.5 block">
-                Name
-              </label>
+              <label className="text-[10px] font-body uppercase tracking-wider text-muted-foreground mb-1.5 block">Name</label>
               <Input
                 placeholder="Your name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 maxLength={100}
-                className="bg-card/50 border-border/30 font-body text-sm h-11 rounded-xl focus:border-primary/40"
+                className="bg-secondary border-border font-body text-sm h-11 rounded-xl focus:border-foreground/40"
               />
             </div>
             <div>
-              <label className="text-[10px] font-body uppercase tracking-wider text-muted-foreground mb-1.5 block">
-                Email
-              </label>
+              <label className="text-[10px] font-body uppercase tracking-wider text-muted-foreground mb-1.5 block">Email</label>
               <Input
                 type="email"
                 placeholder="your@email.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 maxLength={255}
-                className="bg-card/50 border-border/30 font-body text-sm h-11 rounded-xl focus:border-primary/40"
+                className="bg-secondary border-border font-body text-sm h-11 rounded-xl focus:border-foreground/40"
               />
             </div>
             <div>
-              <label className="text-[10px] font-body uppercase tracking-wider text-muted-foreground mb-1.5 block">
-                Message
-              </label>
+              <label className="text-[10px] font-body uppercase tracking-wider text-muted-foreground mb-1.5 block">Message</label>
               <Textarea
                 placeholder="How can we help you?"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 maxLength={1000}
                 rows={5}
-                className="bg-card/50 border-border/30 font-body text-sm rounded-xl resize-none focus:border-primary/40"
+                className="bg-secondary border-border font-body text-sm rounded-xl resize-none focus:border-foreground/40"
               />
             </div>
             <Button
               type="submit"
               disabled={sending}
-              className="w-full h-11 rounded-xl font-body text-sm gap-2"
+              className="w-full h-11 rounded-xl font-body text-sm gap-2 bg-foreground text-background hover:bg-foreground/90"
             >
               {sending ? "Sending..." : "Send Message"}
               <Send className="h-3.5 w-3.5" />
