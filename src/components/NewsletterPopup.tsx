@@ -58,7 +58,7 @@ export const NewsletterPopup = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-foreground/40 backdrop-blur-sm"
           onClick={handleClose}
         >
           <motion.div
@@ -66,7 +66,7 @@ export const NewsletterPopup = () => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-sm bg-background border border-border/50 rounded-2xl p-6 shadow-2xl"
+            className="relative w-full max-w-sm bg-background border border-border rounded-2xl p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -77,10 +77,10 @@ export const NewsletterPopup = () => {
             </button>
 
             <div className="text-center mb-4">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-warm/10 mb-3">
-                <Gift className="h-5 w-5 text-warm" />
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-accent/10 mb-3">
+                <Gift className="h-5 w-5 text-accent" />
               </div>
-              <h3 className="font-display font-medium text-2xl text-foreground leading-tight">
+              <h3 className="font-display text-2xl text-foreground leading-tight">
                 Get 10% Off
               </h3>
               <p className="text-muted-foreground text-xs mt-1 font-body">
@@ -100,7 +100,7 @@ export const NewsletterPopup = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full h-11 rounded-xl bg-espresso hover:bg-espresso/90 text-white font-body font-normal text-sm tracking-wide"
+                className="w-full h-11 rounded-xl bg-foreground hover:bg-foreground/90 text-background font-body font-medium text-sm tracking-wide"
               >
                 {isSubmitting ? "Subscribing..." : "Claim My 10% Off"}
               </Button>

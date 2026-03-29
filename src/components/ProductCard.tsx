@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { type ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { useUIStore } from "@/stores/uiStore";
-
 import { Plus, Loader2, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
@@ -47,7 +46,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
     >
       <Link to={`/product/${node.handle}`} className="group block h-full">
         <div className="card-premium card-premium-hover rounded-2xl overflow-hidden h-full flex flex-col">
-          <div className="aspect-[4/3] overflow-hidden relative flex-shrink-0 bg-gradient-to-br from-sand/30 to-cream/50">
+          <div className="aspect-[4/3] overflow-hidden relative flex-shrink-0 bg-secondary">
             {image ? (
               <img
                 src={image.url}
@@ -57,31 +56,31 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-warm/10 flex items-center justify-center">
-                  <Plus className="h-6 w-6 text-warm/40" />
+                <div className="w-16 h-16 rounded-full bg-border flex items-center justify-center">
+                  <Plus className="h-6 w-6 text-muted-foreground" />
                 </div>
               </div>
             )}
           </div>
           <div className="p-4 sm:p-5 flex flex-col flex-1">
-            <h3 className="font-display font-medium text-base sm:text-lg text-foreground group-hover:text-warm transition-colors duration-300 line-clamp-2 leading-snug mb-2">
+            <h3 className="font-display text-base sm:text-lg text-foreground group-hover:text-accent transition-colors duration-300 line-clamp-2 leading-snug mb-2">
               {node.title}
             </h3>
             <p className="text-muted-foreground text-xs line-clamp-2 font-body font-light leading-relaxed flex-1 mb-3">
               {node.description}
             </p>
-            <div className="flex items-center justify-between pt-3 border-t border-border/20">
-              <span className="font-display font-semibold text-xl text-warm">
+            <div className="flex items-center justify-between pt-3 border-t border-border">
+              <span className="font-display text-xl text-foreground">
                 ${parseFloat(price.amount).toFixed(0)}
               </span>
               <div className="flex items-center gap-2">
-                <span className="font-body text-[10px] text-muted-foreground flex items-center gap-1 group-hover:text-warm/70 transition-colors tracking-[0.1em] uppercase">
+                <span className="font-body text-[10px] text-muted-foreground flex items-center gap-1 group-hover:text-foreground transition-colors tracking-[0.1em] uppercase">
                   Details <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
                 </span>
                 <button
                   onClick={handleAddToCart}
                   disabled={isLoading || !firstVariant?.availableForSale}
-                  className="rounded-full h-9 w-9 flex items-center justify-center bg-espresso hover:bg-espresso/80 text-white transition-all duration-300 disabled:opacity-40 shadow-sm hover:shadow-md hover:scale-105"
+                  className="rounded-full h-9 w-9 flex items-center justify-center bg-foreground hover:bg-foreground/80 text-background transition-all duration-300 disabled:opacity-40 shadow-sm hover:shadow-md hover:scale-105"
                 >
                   {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
                 </button>

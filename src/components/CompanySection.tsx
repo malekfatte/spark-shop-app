@@ -25,7 +25,7 @@ const AnimatedNumber = ({ value, suffix }: { value: number; suffix: string }) =>
     <motion.span
       ref={ref}
       onViewportEnter={() => animate(motionValue, value, { duration: 1.5, ease: "easeOut" })}
-      className="font-display text-3xl sm:text-4xl font-bold text-navy"
+      className="font-display text-3xl sm:text-4xl text-foreground"
     >
       0{suffix}
     </motion.span>
@@ -33,10 +33,8 @@ const AnimatedNumber = ({ value, suffix }: { value: number; suffix: string }) =>
 };
 
 export const CompanySection = () => (
-  <section className="py-14 sm:py-20 relative border-t border-border/20">
-    <div className="absolute inset-0 bg-noise" />
+  <section className="py-14 sm:py-20 relative border-t border-border">
     <div className="container mx-auto px-4 sm:px-5 relative">
-      {/* Stats bar — full width, horizontal */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -47,8 +45,8 @@ export const CompanySection = () => (
           <div
             key={stat.label}
             className={`p-5 sm:p-8 text-center ${
-              i < stats.length - 1 ? "border-r border-border/20" : ""
-            } ${i < 2 ? "border-b md:border-b-0 border-border/20" : ""}`}
+              i < stats.length - 1 ? "border-r border-border" : ""
+            } ${i < 2 ? "border-b md:border-b-0 border-border" : ""}`}
           >
             <AnimatedNumber value={stat.value} suffix={stat.suffix} />
             <p className="text-muted-foreground text-[10px] sm:text-xs font-body mt-1 tracking-wider uppercase">
@@ -58,7 +56,6 @@ export const CompanySection = () => (
         ))}
       </motion.div>
 
-      {/* Company story — asymmetric layout */}
       <div className="grid md:grid-cols-5 gap-6 md:gap-10 items-start">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,10 +63,10 @@ export const CompanySection = () => (
           viewport={{ once: true }}
           className="md:col-span-3"
         >
-          <p className="font-body text-navy font-medium tracking-[0.3em] uppercase text-[10px] mb-3">Our Story</p>
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4 leading-tight">
+          <p className="font-body text-muted-foreground font-light tracking-[0.3em] uppercase text-[10px] mb-3">Our Story</p>
+          <h2 className="font-display text-2xl sm:text-3xl text-foreground mb-4 leading-tight">
             Pioneering Light Therapy<br />
-            <span className="text-navy">Since 2014</span>
+            <span className="text-accent">Since 2014</span>
           </h2>
           <div className="space-y-3 text-muted-foreground text-xs sm:text-sm font-body font-light leading-relaxed">
             <p>
@@ -92,12 +89,12 @@ export const CompanySection = () => (
             { title: "Precision Wavelengths", desc: "660nm red + 850nm near-infrared, verified by independent spectral analysis" },
             { title: "Zero EMF at 6\"", desc: "Electromagnetic field levels tested below detectable thresholds" },
             { title: "3rd-Party Tested", desc: "Every batch verified by independent labs for power output and safety" },
-          ].map((item, i) => (
+          ].map((item) => (
             <div
               key={item.title}
-              className="bg-navy/[0.04] border border-navy/10 rounded-xl p-4 hover:border-navy/20 transition-colors"
+              className="bg-secondary border border-border rounded-xl p-4 hover:border-foreground/20 transition-colors"
             >
-              <p className="font-display font-semibold text-sm text-foreground mb-1">{item.title}</p>
+              <p className="font-display text-sm text-foreground mb-1">{item.title}</p>
               <p className="text-muted-foreground text-[10px] sm:text-xs font-body font-light leading-relaxed">{item.desc}</p>
             </div>
           ))}
