@@ -3,27 +3,9 @@ import { type ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { useUIStore } from "@/stores/uiStore";
 
-import { Plus, Loader2, ArrowRight, Flame, Sparkles } from "lucide-react";
+import { Plus, Loader2, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
-
-function getProductBadge(title: string): { label: string; icon: typeof Flame } | null {
-  const t = title.toLowerCase();
-  if (t.includes("1500") || t.includes("full body")) return { label: "Best Seller", icon: Flame };
-  if (t.includes("mask") || t.includes("go2")) return { label: "Popular", icon: Sparkles };
-  return null;
-}
-
-function getBenefitLine(title: string): string {
-  const t = title.toLowerCase();
-  if (t.includes("mask")) return "Skin rejuvenation • Targeted therapy";
-  if (t.includes("1500") || t.includes("full body")) return "Full-body coverage • 660nm + 850nm";
-  if (t.includes("panel") || t.includes("kr")) return "Dual wavelength • Clinical grade";
-  if (t.includes("wrap") || t.includes("belt")) return "Flexible fit • Joint & muscle relief";
-  if (t.includes("bulb") || t.includes("lamp")) return "Portable • Spot treatment";
-  if (t.includes("mat")) return "Deep relaxation • Full back therapy";
-  return "Professional grade • Precision engineered";
-}
 
 interface ProductCardProps {
   product: ShopifyProduct;
@@ -38,8 +20,6 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
   const firstVariant = node.variants.edges[0]?.node;
   const image = node.images.edges[0]?.node;
   const price = node.priceRange.minVariantPrice;
-  const badge = getProductBadge(node.title);
-  const benefit = getBenefitLine(node.title);
 
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -62,59 +42,50 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      transition={{ duration: 0.6, delay: index * 0.08 }}
       className="h-full"
     >
       <Link to={`/product/${node.handle}`} className="group block h-full">
         <div className="card-premium card-premium-hover rounded-2xl overflow-hidden h-full flex flex-col">
-          <div className="aspect-square overflow-hidden relative flex-shrink-0 bg-secondary/30">
-            {badge && (
-              <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1 bg-navy text-white px-2.5 py-1 rounded-full">
-                <badge.icon className="h-3 w-3" />
-                <span className="font-body text-[10px] font-semibold tracking-wider uppercase">{badge.label}</span>
-              </div>
-            )}
+          <div className="aspect-[4/3] overflow-hidden relative flex-shrink-0 bg-gradient-to-br from-sand/30 to-cream/50">
             {image ? (
               <img
                 src={image.url}
                 alt={image.altText || node.title}
-                className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 p-4 mix-blend-multiply"
+                className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 p-6"
                 loading="lazy"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary/40 to-secondary/10">
-                <div className="w-16 h-16 rounded-full bg-navy/10 flex items-center justify-center">
-                  <Plus className="h-6 w-6 text-navy/40" />
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-warm/10 flex items-center justify-center">
+                  <Plus className="h-6 w-6 text-warm/40" />
                 </div>
               </div>
             )}
           </div>
-          <div className="p-3 sm:p-4 flex flex-col flex-1">
-            <div className="flex items-start justify-between gap-2 mb-1">
-              <h3 className="font-display font-semibold text-sm sm:text-base text-foreground group-hover:text-navy transition-colors duration-300 line-clamp-1">
-                {node.title}
-              </h3>
-              <span className="font-display font-bold text-lg text-navy whitespace-nowrap">
-                ${parseFloat(price.amount).toFixed(0)}
-              </span>
-            </div>
-            <p className="text-primary/70 text-[9px] sm:text-[10px] font-body font-medium tracking-wider uppercase mb-1">
-              {benefit}
-            </p>
-            <p className="text-muted-foreground text-[10px] sm:text-xs line-clamp-1 font-body font-light leading-relaxed flex-1">
+          <div className="p-4 sm:p-5 flex flex-col flex-1">
+            <h3 className="font-display font-medium text-base sm:text-lg text-foreground group-hover:text-warm transition-colors duration-300 line-clamp-2 leading-snug mb-2">
+              {node.title}
+            </h3>
+            <p className="text-muted-foreground text-xs line-clamp-2 font-body font-light leading-relaxed flex-1 mb-3">
               {node.description}
             </p>
-            <div className="flex items-center justify-between mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-border/30">
-              <span className="font-body text-xs text-muted-foreground flex items-center gap-1 group-hover:text-navy/70 transition-colors">
-                View Details <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+            <div className="flex items-center justify-between pt-3 border-t border-border/20">
+              <span className="font-display font-semibold text-xl text-warm">
+                ${parseFloat(price.amount).toFixed(0)}
               </span>
-              <button
-                onClick={handleAddToCart}
-                disabled={isLoading || !firstVariant?.availableForSale}
-                className="rounded-full h-9 w-9 flex items-center justify-center bg-navy hover:bg-navy/80 text-white transition-all duration-300 disabled:opacity-40 shadow-sm hover:shadow-md hover:scale-105"
-              >
-                {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
-              </button>
+              <div className="flex items-center gap-2">
+                <span className="font-body text-[10px] text-muted-foreground flex items-center gap-1 group-hover:text-warm/70 transition-colors tracking-[0.1em] uppercase">
+                  Details <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+                </span>
+                <button
+                  onClick={handleAddToCart}
+                  disabled={isLoading || !firstVariant?.availableForSale}
+                  className="rounded-full h-9 w-9 flex items-center justify-center bg-espresso hover:bg-espresso/80 text-white transition-all duration-300 disabled:opacity-40 shadow-sm hover:shadow-md hover:scale-105"
+                >
+                  {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
+                </button>
+              </div>
             </div>
           </div>
         </div>
