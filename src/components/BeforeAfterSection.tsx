@@ -12,7 +12,6 @@ interface Result {
   area: string;
   duration: string;
   description: string;
-  gradient: string;
   image: string;
 }
 
@@ -22,7 +21,6 @@ const results: Result[] = [
     area: "Face & Neck",
     duration: "8 weeks",
     description: "Visible reduction in fine lines and improved skin texture through consistent 660nm red light sessions.",
-    gradient: "from-accent/10 to-accent/5",
     image: resultFineLines,
   },
   {
@@ -30,7 +28,6 @@ const results: Result[] = [
     area: "Back & Shoulders",
     duration: "4 weeks",
     description: "Faster post-workout recovery and reduced muscle soreness using 850nm near-infrared therapy.",
-    gradient: "from-secondary to-muted",
     image: resultMuscleRecovery,
   },
   {
@@ -38,7 +35,6 @@ const results: Result[] = [
     area: "Knees & Hands",
     duration: "6 weeks",
     description: "Significant reduction in joint stiffness and inflammation with dual-wavelength panel sessions.",
-    gradient: "from-muted to-secondary",
     image: resultJointPain,
   },
   {
@@ -46,7 +42,6 @@ const results: Result[] = [
     area: "Full Body",
     duration: "12 weeks",
     description: "Improved collagen density, even skin tone, and enhanced overall radiance with full-body treatment.",
-    gradient: "from-accent/5 to-accent/10",
     image: resultSkinRejuvenation,
   },
 ];
@@ -65,8 +60,9 @@ const ResultCard = ({ result, index }: { result: Result; index: number }) => {
       <div className="card-premium rounded-2xl overflow-hidden">
         <button
           onClick={() => setShowAfter(!showAfter)}
-          className={`relative w-full aspect-[4/3] bg-gradient-to-br ${result.gradient} transition-all duration-700 overflow-hidden`}
+          className="relative w-full aspect-[4/3] bg-secondary transition-all duration-700 overflow-hidden"
         >
+          {/* Result image (shown on "after") */}
           <img
             src={result.image}
             alt={result.title}
@@ -78,35 +74,45 @@ const ResultCard = ({ result, index }: { result: Result; index: number }) => {
             }`}
           />
 
+          {/* Dark overlay on after state for text readability */}
+          <div
+            className={`absolute inset-0 bg-foreground/40 transition-opacity duration-500 ${
+              showAfter ? "opacity-100" : "opacity-0"
+            }`}
+          />
+
+          {/* Before state */}
           <div
             className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ${
               showAfter ? "opacity-0 scale-95" : "opacity-100 scale-100"
             }`}
           >
-            <div className="w-16 h-16 rounded-full bg-background/60 backdrop-blur-sm flex items-center justify-center mb-3 border border-border">
-              <span className="font-display text-xs text-muted-foreground uppercase tracking-wider">Before</span>
+            <div className="w-16 h-16 rounded-full bg-background border border-border flex items-center justify-center mb-3">
+              <span className="font-body text-[10px] font-medium text-foreground uppercase tracking-wider">Before</span>
             </div>
-            <p className="text-[10px] font-body text-muted-foreground/70 tracking-wider uppercase">Tap to reveal</p>
+            <p className="text-[10px] font-body text-muted-foreground tracking-wider uppercase">Tap to reveal</p>
           </div>
 
+          {/* After state */}
           <div
-            className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ${
+            className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 z-10 ${
               showAfter ? "opacity-100 scale-100" : "opacity-0 scale-105"
             }`}
           >
-            <div className="w-16 h-16 rounded-full bg-foreground/80 backdrop-blur-sm flex items-center justify-center mb-3 border border-background/20">
-              <Sparkles className="h-5 w-5 text-background" />
+            <div className="w-16 h-16 rounded-full bg-background border border-border flex items-center justify-center mb-3">
+              <Sparkles className="h-5 w-5 text-accent" />
             </div>
-            <span className="font-display text-sm text-foreground drop-shadow-md">After {result.duration}</span>
-            <p className="text-[10px] font-body text-background/70 tracking-wider uppercase mt-1 drop-shadow-sm">Tap to reset</p>
+            <span className="font-display text-sm text-background drop-shadow-md">After {result.duration}</span>
+            <p className="text-[10px] font-body text-background/80 tracking-wider uppercase mt-1">Tap to reset</p>
           </div>
 
-          <div className="absolute top-3 right-3">
+          {/* Toggle badge */}
+          <div className="absolute top-3 right-3 z-10">
             <span
-              className={`inline-block px-2.5 py-1 rounded-full text-[10px] font-body font-medium tracking-wider uppercase backdrop-blur-sm border transition-colors duration-500 ${
+              className={`inline-block px-2.5 py-1 rounded-full text-[10px] font-body font-medium tracking-wider uppercase border transition-colors duration-500 ${
                 showAfter
-                  ? "bg-foreground/80 text-background border-background/20"
-                  : "bg-background/60 text-muted-foreground border-border"
+                  ? "bg-background text-foreground border-border"
+                  : "bg-foreground text-background border-foreground"
               }`}
             >
               {showAfter ? "After" : "Before"}
