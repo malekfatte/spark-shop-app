@@ -19,9 +19,9 @@ const PaymentIcons = () => (
     {["Visa", "Mastercard", "PayPal", "Shop Pay"].map((name) => (
       <div
         key={name}
-        className="h-7 px-3 rounded-full bg-warm/5 border border-border/15 flex items-center justify-center"
+        className="h-7 px-3 rounded-full bg-white/5 border border-white/10 flex items-center justify-center"
       >
-        <span className="font-body text-[9px] font-light text-muted-foreground tracking-[0.1em] uppercase">
+        <span className="font-body text-[9px] font-light text-white/40 tracking-[0.1em] uppercase">
           {name}
         </span>
       </div>
@@ -30,11 +30,10 @@ const PaymentIcons = () => (
 );
 
 export const StoreFooter = () => (
-  <footer className="py-16 relative">
-    <div className="section-divider" />
-    <div className="container mx-auto px-5 text-center pt-14 relative">
-      <p className="font-display font-medium text-3xl text-foreground mb-3">Soléa</p>
-      <p className="text-muted-foreground text-xs max-w-sm mx-auto font-body font-light leading-relaxed">
+  <footer className="py-16 relative bg-foreground">
+    <div className="container mx-auto px-5 text-center relative">
+      <p className="font-display font-medium text-3xl text-white mb-3">Soléa</p>
+      <p className="text-white/40 text-xs max-w-sm mx-auto font-body font-light leading-relaxed">
         Professional red light therapy devices. FDA, CE, ROHS, FCC certified. Trusted by professionals worldwide.
       </p>
       <div className="flex items-center justify-center gap-4 mt-6">
@@ -45,7 +44,7 @@ export const StoreFooter = () => (
             target="_blank"
             rel="noopener noreferrer"
             aria-label={link.label}
-            className="h-10 w-10 rounded-full border border-border/25 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-warm/30 transition-all duration-300"
+            className="h-10 w-10 rounded-full border border-white/15 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all duration-300"
           >
             <link.icon className="h-4 w-4" />
           </a>
@@ -53,8 +52,8 @@ export const StoreFooter = () => (
       </div>
       <PaymentIcons />
       <div className="mt-8 pt-8">
-        <div className="section-divider mb-6" />
-        <p className="text-muted-foreground/40 text-[10px] font-body tracking-[0.15em] uppercase font-light">
+        <div className="h-px bg-white/10 mb-6" />
+        <p className="text-white/25 text-[10px] font-body tracking-[0.15em] uppercase font-light">
           © {new Date().getFullYear()} Soléa Technologies Inc.
         </p>
       </div>

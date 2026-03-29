@@ -55,7 +55,7 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
                 loading="lazy"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center">
+              <div className="w-full h-full flex items-center justify-center bg-secondary">
                 <div className="w-16 h-16 rounded-full bg-border flex items-center justify-center">
                   <Plus className="h-6 w-6 text-muted-foreground" />
                 </div>
@@ -63,14 +63,14 @@ export const ProductCard = ({ product, index }: ProductCardProps) => {
             )}
           </div>
           <div className="p-4 sm:p-5 flex flex-col flex-1">
-            <h3 className="font-display text-base sm:text-lg text-foreground group-hover:text-accent transition-colors duration-300 line-clamp-2 leading-snug mb-2">
+            <h3 className="font-display text-base sm:text-lg font-medium text-foreground group-hover:text-muted-foreground transition-colors duration-300 line-clamp-2 leading-snug mb-2">
               {node.title}
             </h3>
             <p className="text-muted-foreground text-xs line-clamp-2 font-body font-light leading-relaxed flex-1 mb-3">
               {node.description}
             </p>
             <div className="flex items-center justify-between pt-3 border-t border-border">
-              <span className="font-display text-xl text-foreground">
+              <span className="font-display text-xl font-medium text-foreground">
                 ${parseFloat(price.amount).toFixed(0)}
               </span>
               <div className="flex items-center gap-2">

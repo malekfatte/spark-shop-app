@@ -44,7 +44,7 @@ export const ProductGrid = () => {
           <p className="font-body text-muted-foreground font-light tracking-[0.3em] uppercase text-[10px] mb-4">The Collection</p>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium text-foreground leading-tight">
             Precision-Engineered<br />
-            <span className="text-gradient-warm italic font-light">Therapy Devices</span>
+            <span className="text-muted-foreground font-light">Therapy Devices</span>
           </h2>
         </motion.div>
 
@@ -72,13 +72,13 @@ export const ProductGrid = () => {
                     font-body text-[11px] sm:text-xs px-5 sm:px-6 py-2.5 sm:py-3 rounded-full
                     transition-all duration-300 border font-light tracking-[0.1em] uppercase
                     ${isActive
-                      ? "bg-espresso text-white border-espresso shadow-lg shadow-espresso/10"
-                      : "bg-transparent text-muted-foreground border-border/50 hover:border-warm/40 hover:text-foreground"
+                      ? "bg-foreground text-background border-foreground"
+                      : "bg-transparent text-muted-foreground border-border hover:border-foreground/40 hover:text-foreground"
                     }
                   `}
                 >
                   {cat.label}
-                  <span className={`ml-2 text-[10px] ${isActive ? "text-white/60" : "text-muted-foreground/50"}`}>
+                  <span className={`ml-2 text-[10px] ${isActive ? "text-background/60" : "text-muted-foreground/50"}`}>
                     {count}
                   </span>
                 </button>
@@ -89,7 +89,7 @@ export const ProductGrid = () => {
 
         {isLoading ? (
           <div className="flex justify-center py-24">
-            <Loader2 className="h-8 w-8 animate-spin text-warm" />
+            <Loader2 className="h-8 w-8 animate-spin text-foreground" />
           </div>
         ) : error ? (
           <div className="text-center py-24 text-destructive font-body">

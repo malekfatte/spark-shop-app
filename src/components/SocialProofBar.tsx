@@ -21,8 +21,8 @@ export const SocialProofBar = () => (
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {stats.map(({ icon: Icon, value, label }) => (
           <div key={label} className="text-center">
-            <div className="h-10 w-10 rounded-full bg-warm-light flex items-center justify-center mx-auto mb-3">
-              <Icon className="h-4 w-4 text-warm" />
+            <div className="h-10 w-10 rounded-full bg-secondary flex items-center justify-center mx-auto mb-3">
+              <Icon className="h-4 w-4 text-foreground" />
             </div>
             <p className="font-display font-semibold text-2xl text-foreground leading-none mb-1">{value}</p>
             <p className="font-body text-[10px] text-muted-foreground tracking-[0.15em] uppercase font-light">{label}</p>

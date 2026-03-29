@@ -25,10 +25,10 @@ export const CartDrawer = () => {
   return (
     <Sheet open={isCartOpen} onOpenChange={setCartOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="relative hover:bg-secondary">
-          <ShoppingCart className="h-5 w-5 text-foreground" />
+        <Button variant="ghost" size="icon" className="relative hover:bg-white/10">
+          <ShoppingCart className="h-5 w-5 text-white" />
           {totalItems > 0 && (
-            <Badge className="absolute -top-1.5 -right-1.5 h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px] font-body font-bold bg-navy text-white border-0">
+            <Badge className="absolute -top-1.5 -right-1.5 h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px] font-body font-bold bg-lime text-foreground border-0">
               {totalItems}
             </Badge>
           )}
@@ -36,7 +36,7 @@ export const CartDrawer = () => {
       </SheetTrigger>
       <SheetContent className="w-full sm:max-w-md flex flex-col h-full bg-background border-l border-border/30">
         <SheetHeader className="flex-shrink-0">
-          <SheetTitle className="font-display text-xl">Your Cart</SheetTitle>
+          <SheetTitle className="font-display text-xl font-medium">Your Cart</SheetTitle>
           <SheetDescription className="font-body">
             {totalItems === 0 ? "Your cart is empty" : `${totalItems} item${totalItems !== 1 ? 's' : ''}`}
           </SheetDescription>
@@ -45,7 +45,7 @@ export const CartDrawer = () => {
           {items.length === 0 ? (
             <div className="flex-1 flex items-center justify-center">
               <div className="text-center">
-                <div className="w-16 h-16 rounded-full bg-secondary/50 flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center mx-auto mb-4">
                   <ShoppingCart className="h-6 w-6 text-muted-foreground" />
                 </div>
                 <p className="text-muted-foreground font-body text-sm">Nothing here yet</p>
@@ -57,14 +57,14 @@ export const CartDrawer = () => {
                 <div className="space-y-3">
                   {items.map((item) => (
                     <div key={item.variantId} className="flex gap-3 p-3 rounded-xl card-premium">
-                      <div className="w-14 h-14 bg-secondary/30 rounded-lg overflow-hidden flex-shrink-0">
+                      <div className="w-14 h-14 bg-secondary rounded-lg overflow-hidden flex-shrink-0">
                         {item.product.node.images?.edges?.[0]?.node && (
                           <img src={item.product.node.images.edges[0].node.url} alt={item.product.node.title} className="w-full h-full object-cover" />
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-display font-semibold text-sm truncate text-foreground">{item.product.node.title}</h4>
-                        <p className="text-navy font-body font-semibold text-sm mt-0.5">${parseFloat(item.price.amount).toFixed(2)}</p>
+                        <h4 className="font-display font-medium text-sm truncate text-foreground">{item.product.node.title}</h4>
+                        <p className="text-foreground font-body font-medium text-sm mt-0.5">${parseFloat(item.price.amount).toFixed(2)}</p>
                       </div>
                       <div className="flex flex-col items-end gap-2 flex-shrink-0">
                         <Button variant="ghost" size="icon" className="h-6 w-6 text-muted-foreground hover:text-destructive" onClick={() => removeItem(item.variantId)}>
@@ -86,10 +86,10 @@ export const CartDrawer = () => {
               </div>
               <div className="flex-shrink-0 space-y-4 pt-5 border-t border-border/30">
                 <div className="flex justify-between items-center">
-                  <span className="font-display text-base">Total</span>
+                  <span className="font-display text-base font-medium">Total</span>
                   <span className="font-display text-xl font-bold text-foreground">${totalPrice.toFixed(2)}</span>
                 </div>
-                <Button onClick={handleCheckout} className="w-full rounded-full py-6 font-body font-medium tracking-wide bg-navy hover:bg-navy/90 text-white" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
+                <Button onClick={handleCheckout} className="w-full rounded-full py-6 font-body font-medium tracking-wide bg-lime hover:bg-lime/90 text-foreground" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
                   {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : <><ExternalLink className="w-4 h-4 mr-2" />Secure Checkout</>}
                 </Button>
               </div>

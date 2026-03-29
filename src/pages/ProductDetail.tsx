@@ -87,7 +87,6 @@ const ProductDetail = () => {
           </Link>
 
           <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-            {/* Images */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -126,7 +125,6 @@ const ProductDetail = () => {
               )}
             </motion.div>
 
-            {/* Details */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -135,15 +133,14 @@ const ProductDetail = () => {
             >
               <div>
                 <p className="font-body text-muted-foreground font-light tracking-[0.2em] uppercase text-[10px] mb-2">Soléa</p>
-                <h1 className="font-display text-3xl sm:text-4xl text-foreground leading-tight">{product.title}</h1>
-                <p className="text-foreground font-display text-3xl mt-3">
+                <h1 className="font-display text-3xl sm:text-4xl font-medium text-foreground leading-tight">{product.title}</h1>
+                <p className="text-foreground font-display text-3xl font-medium mt-3">
                   ${parseFloat(selectedVariant?.price.amount || '0').toFixed(2)}
                 </p>
               </div>
 
               <p className="text-muted-foreground text-sm leading-relaxed font-body font-light">{product.description}</p>
 
-              {/* Variant selector */}
               {product.options?.length > 0 && product.variants.edges.length > 1 && (
                 <div className="space-y-4">
                   {product.options.map((option: { name: string; values: string[] }) => (
@@ -176,26 +173,24 @@ const ProductDetail = () => {
                 </div>
               )}
 
-              {/* Quantity */}
               <div>
                 <label className="text-[10px] font-body font-medium text-muted-foreground uppercase tracking-[0.2em]">Quantity</label>
                 <div className="flex items-center gap-3 mt-2">
                   <Button variant="outline" size="icon" className="h-9 w-9 rounded-full" onClick={() => setQuantity(q => Math.max(1, q - 1))}>
                     <Minus className="h-3 w-3" />
                   </Button>
-                  <span className="font-body font-semibold w-8 text-center text-foreground">{quantity}</span>
+                  <span className="font-body font-medium w-8 text-center text-foreground">{quantity}</span>
                   <Button variant="outline" size="icon" className="h-9 w-9 rounded-full" onClick={() => setQuantity(q => q + 1)}>
                     <Plus className="h-3 w-3" />
                   </Button>
                 </div>
               </div>
 
-              {/* Add to Cart */}
               <Button
                 ref={addToCartRef}
                 onClick={handleAddToCart}
                 size="lg"
-                className="w-full rounded-full py-6 font-body font-medium tracking-wide bg-foreground hover:bg-foreground/90 text-background"
+                className="w-full rounded-full py-6 font-body font-medium tracking-wide bg-lime hover:bg-lime/90 text-foreground"
                 disabled={isCartLoading || !selectedVariant?.availableForSale}
               >
                 {isCartLoading ? (
@@ -212,7 +207,6 @@ const ProductDetail = () => {
                 <p className="text-destructive text-xs text-center font-body">Currently out of stock</p>
               )}
 
-              {/* Trust badges */}
               <div className="flex items-center gap-2 pt-2">
                 <Shield className="h-3.5 w-3.5 text-muted-foreground" />
                 <span className="text-muted-foreground text-[10px] font-body tracking-wider uppercase">FDA Cleared · 2-Year Warranty · Free Shipping</span>
@@ -222,7 +216,6 @@ const ProductDetail = () => {
         </div>
       </main>
 
-      {/* Sticky bottom bar */}
       <AnimatePresence>
         {showStickyBar && selectedVariant && (
           <motion.div
@@ -234,12 +227,12 @@ const ProductDetail = () => {
           >
             <div className="container mx-auto px-5 py-3 flex items-center justify-between gap-4">
               <div className="flex items-center gap-3 min-w-0">
-                <p className="font-display text-sm text-foreground truncate">{product.title}</p>
-                <p className="font-display text-lg text-foreground whitespace-nowrap">${totalPrice}</p>
+                <p className="font-display text-sm font-medium text-foreground truncate">{product.title}</p>
+                <p className="font-display text-lg font-medium text-foreground whitespace-nowrap">${totalPrice}</p>
               </div>
               <Button
                 onClick={handleAddToCart}
-                className="rounded-full px-6 py-5 font-body text-sm bg-foreground hover:bg-foreground/90 text-background flex-shrink-0 gap-2"
+                className="rounded-full px-6 py-5 font-body text-sm bg-lime hover:bg-lime/90 text-foreground flex-shrink-0 gap-2"
                 disabled={isCartLoading || !selectedVariant.availableForSale}
               >
                 {isCartLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <ShoppingCart className="h-4 w-4" />}

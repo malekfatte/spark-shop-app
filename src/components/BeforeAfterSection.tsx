@@ -62,7 +62,6 @@ const ResultCard = ({ result, index }: { result: Result; index: number }) => {
           onClick={() => setShowAfter(!showAfter)}
           className="relative w-full aspect-[4/3] bg-secondary transition-all duration-700 overflow-hidden"
         >
-          {/* Result image (shown on "after") */}
           <img
             src={result.image}
             alt={result.title}
@@ -74,14 +73,12 @@ const ResultCard = ({ result, index }: { result: Result; index: number }) => {
             }`}
           />
 
-          {/* Dark overlay on after state for text readability */}
           <div
             className={`absolute inset-0 bg-foreground/40 transition-opacity duration-500 ${
               showAfter ? "opacity-100" : "opacity-0"
             }`}
           />
 
-          {/* Before state */}
           <div
             className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ${
               showAfter ? "opacity-0 scale-95" : "opacity-100 scale-100"
@@ -93,25 +90,23 @@ const ResultCard = ({ result, index }: { result: Result; index: number }) => {
             <p className="text-[10px] font-body text-muted-foreground tracking-wider uppercase">Tap to reveal</p>
           </div>
 
-          {/* After state */}
           <div
             className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 z-10 ${
               showAfter ? "opacity-100 scale-100" : "opacity-0 scale-105"
             }`}
           >
-            <div className="w-16 h-16 rounded-full bg-background border border-border flex items-center justify-center mb-3">
-              <Sparkles className="h-5 w-5 text-accent" />
+            <div className="w-16 h-16 rounded-full bg-lime border-0 flex items-center justify-center mb-3">
+              <Sparkles className="h-5 w-5 text-foreground" />
             </div>
-            <span className="font-display text-sm text-background drop-shadow-md">After {result.duration}</span>
-            <p className="text-[10px] font-body text-background/80 tracking-wider uppercase mt-1">Tap to reset</p>
+            <span className="font-display text-sm text-white font-medium drop-shadow-md">After {result.duration}</span>
+            <p className="text-[10px] font-body text-white/70 tracking-wider uppercase mt-1">Tap to reset</p>
           </div>
 
-          {/* Toggle badge */}
           <div className="absolute top-3 right-3 z-10">
             <span
               className={`inline-block px-2.5 py-1 rounded-full text-[10px] font-body font-medium tracking-wider uppercase border transition-colors duration-500 ${
                 showAfter
-                  ? "bg-background text-foreground border-border"
+                  ? "bg-lime text-foreground border-lime"
                   : "bg-foreground text-background border-foreground"
               }`}
             >
@@ -122,13 +117,13 @@ const ResultCard = ({ result, index }: { result: Result; index: number }) => {
 
         <div className="p-5">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="font-display text-base text-foreground">{result.title}</h3>
+            <h3 className="font-display text-base font-medium text-foreground">{result.title}</h3>
             <div className="flex items-center gap-1 text-muted-foreground">
               <Clock className="h-3 w-3" />
               <span className="text-[10px] font-body">{result.duration}</span>
             </div>
           </div>
-          <p className="text-[10px] font-body text-accent font-medium uppercase tracking-[0.15em] mb-2">{result.area}</p>
+          <p className="text-[10px] font-body text-muted-foreground font-medium uppercase tracking-[0.15em] mb-2">{result.area}</p>
           <p className="text-xs font-body text-muted-foreground leading-relaxed">{result.description}</p>
         </div>
       </div>
@@ -149,7 +144,7 @@ export const BeforeAfterSection = () => (
         <p className="font-body text-muted-foreground font-light tracking-[0.3em] uppercase text-[10px] mb-3">
           Real Results
         </p>
-        <h2 className="font-display text-3xl md:text-5xl text-foreground mb-3">
+        <h2 className="font-display text-3xl md:text-5xl font-medium text-foreground mb-3">
           Proven Outcomes
         </h2>
         <p className="text-muted-foreground font-body text-sm max-w-lg mx-auto leading-relaxed">

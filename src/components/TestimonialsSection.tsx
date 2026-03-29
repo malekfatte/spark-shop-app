@@ -32,7 +32,7 @@ const userTestimonials = [
 const StarRating = ({ count }: { count: number }) => (
   <div className="flex gap-0.5">
     {Array.from({ length: count }).map((_, i) => (
-      <Star key={i} className="h-3 w-3 fill-accent text-accent" />
+      <Star key={i} className="h-3 w-3 fill-lime text-lime" />
     ))}
   </div>
 );
@@ -50,7 +50,7 @@ export const TestimonialsSection = () => {
           className="text-center mb-6"
         >
           <p className="font-body text-muted-foreground font-light tracking-[0.3em] uppercase text-[10px] mb-3">Expert Endorsed</p>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl text-foreground">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-medium text-foreground">
             Trusted by Healthcare Professionals
           </h2>
         </motion.div>
@@ -67,7 +67,7 @@ export const TestimonialsSection = () => {
               "{doctorTestimonials[activeDr].quote}"
             </p>
             <div className="text-center mt-5">
-              <p className="font-display text-sm text-foreground">{doctorTestimonials[activeDr].name}</p>
+              <p className="font-display text-sm font-medium text-foreground">{doctorTestimonials[activeDr].name}</p>
               <p className="text-muted-foreground text-xs font-body">{doctorTestimonials[activeDr].title}</p>
             </div>
           </div>
@@ -96,7 +96,7 @@ export const TestimonialsSection = () => {
           className="text-center mb-6"
         >
           <p className="font-body text-muted-foreground font-light tracking-[0.3em] uppercase text-[10px] mb-3">Real Results</p>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl text-foreground">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-medium text-foreground">
             What Our Customers Say
           </h2>
         </motion.div>
@@ -111,16 +111,16 @@ export const TestimonialsSection = () => {
               transition={{ delay: i * 0.06 }}
               className="break-inside-avoid mb-3 sm:mb-4"
             >
-              <div className={`card-premium rounded-xl p-4 sm:p-5 ${i % 3 === 0 ? 'border-l-2 border-l-accent/30' : ''}`}>
+              <div className="card-premium rounded-xl p-4 sm:p-5">
                 <StarRating count={t.stars} />
                 <p className="text-foreground text-xs sm:text-sm font-body leading-relaxed mt-3 mb-3">"{t.quote}"</p>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-display text-xs text-foreground">{t.name}</p>
+                    <p className="font-display text-xs font-medium text-foreground">{t.name}</p>
                     <p className="text-muted-foreground text-[10px] font-body">{t.location}</p>
                   </div>
-                  <div className="h-7 w-7 rounded-full bg-secondary flex items-center justify-center">
-                    <span className="text-foreground font-display text-[10px]">{t.name.charAt(0)}</span>
+                  <div className="h-7 w-7 rounded-full bg-foreground flex items-center justify-center">
+                    <span className="text-background font-display text-[10px] font-medium">{t.name.charAt(0)}</span>
                   </div>
                 </div>
               </div>

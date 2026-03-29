@@ -77,10 +77,10 @@ export const NewsletterPopup = () => {
             </button>
 
             <div className="text-center mb-4">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-accent/10 mb-3">
-                <Gift className="h-5 w-5 text-accent" />
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-lime/20 mb-3">
+                <Gift className="h-5 w-5 text-foreground" />
               </div>
-              <h3 className="font-display text-2xl text-foreground leading-tight">
+              <h3 className="font-display text-2xl font-medium text-foreground leading-tight">
                 Get 10% Off
               </h3>
               <p className="text-muted-foreground text-xs mt-1 font-body">
@@ -100,7 +100,7 @@ export const NewsletterPopup = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full h-11 rounded-xl bg-foreground hover:bg-foreground/90 text-background font-body font-medium text-sm tracking-wide"
+                className="w-full h-11 rounded-xl bg-lime hover:bg-lime/90 text-foreground font-body font-medium text-sm tracking-wide"
               >
                 {isSubmitting ? "Subscribing..." : "Claim My 10% Off"}
               </Button>
